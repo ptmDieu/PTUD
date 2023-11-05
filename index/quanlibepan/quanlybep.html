@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý bếp ăn</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; 
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #fcdd13; 
+            margin: 0;
+        }
+
+        .navbar .nav-item {
+            padding: 0 15px;
+        }
+
+        .navbar .nav-link {
+            color: #ffffff;
+        }
+
+        .navbar-toggler-icon {
+            color: #ffffff; 
+        }
+
+        .navbar .ml-auto .btn {
+            color: #ffffff; 
+        }
+
+        .btn-outline-success {
+            color: #ffffff; 
+            border-color: #ffffff; 
+        }
+        
+        .nav-item.active a {
+        border-bottom: 1px solid #050505;
+        
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-collapse, .form-inline {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo" width="100" height="100"></a>
+        <div class="right-text ml-auto">
+            <a class="navbar-brand" href="#"><img src="admin.png" alt="Logo" width="65" height="40"></a>
+            <a href="#">Đăng xuất</a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <!-- Đánh dấu mục Trang chủ là mục đang chọn -->
+            <li class="nav-item active">
+                <a class="nav-link" href="./quanlybep.html">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Thực đơn</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Chức năng
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="">Xác nhận thông tin nguyên vật liệu</a>
+                    <a class="dropdown-item" href="">Xem danh sách thực đơn</a>
+                    <a class="dropdown-item" href="">Xác nhận số lượng phần ăn</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Giới thiệu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Liên hệ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Trợ giúp</a>
+            </li>
+        </ul>
+    </div>
+    <form class="form-inline my-2 my-lg-0 ml-auto">
+        <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+    </form>
+</nav>
+<main class="main-content">
+    <img src="./anh.png" alt="Ảnh lớn" style="width: 100%; height: auto;">
+</main>
+
+<!-- Link to Bootstrap JS (Popper.js and jQuery are required for Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+

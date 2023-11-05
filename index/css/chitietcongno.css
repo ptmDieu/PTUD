@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #c59d6b;
+    display: flex;
+}
+
+.col-2{
+    flex: 0 0 15%;
+    max-width: 40%;
+}
+.col-8{
+    margin-top: 25px;
+    flex: 0 0 73%;
+    max-width: 90%;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    margin: 50px; 
+}
+
+section{
+    margin: 30px;
+}
+
+.text1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 27px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 23px;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+button{
+    background-color: #c59d6b;
+    font-size: 28px;
+    padding: 10px 20px; /* Khoảng cách giữa nội dung và biên của button */
+    display: block;
+    margin-top: 100px;
+    margin-left: 345px;
+    float: left;
+}
