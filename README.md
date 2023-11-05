@@ -1,2 +1,0 @@
-# QuanLyBepAn
-Trang chủ ADMIN
