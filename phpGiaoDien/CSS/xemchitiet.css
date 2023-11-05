@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: rgb(101, 201, 201);
+    display: flex;
+}
+
+.col-2{
+    flex: 0 0 15%;
+    max-width: 13%;
+}
+.col-8{
+    flex: 0 0 75%;
+    max-width: 90%;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    margin: 50px; 
+}
+
+.menu ul li{
+    float: left;
+    font-size: 30px;  /*cỡ chữ*/
+    list-style-type: none;
+}
+.menu{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} 
+
+section{
+    margin: 30px;
+}
+
+.text1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 27px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 9px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    margin: 170px;
+    font-size: 30px;
+    padding: 10px 20px; /* Khoảng cách giữa nội dung và biên của button */
+    width: 350px;
+    height: 50px;
+}
