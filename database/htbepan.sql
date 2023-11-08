@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2023 at 03:41 PM
+-- Generation Time: Nov 08, 2023 at 05:40 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -68,6 +68,13 @@ CREATE TABLE `ctphieudatmon` (
   `GhiChu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `ctphieudatmon`
+--
+
+INSERT INTO `ctphieudatmon` (`MaCTPhieuDatMon`, `MaPhieuDatMon`, `MaMonAn`, `SoLuong`, `GhiChu`) VALUES
+(1, 1, 17, 2, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -102,9 +109,17 @@ CREATE TABLE `danhgia` (
 CREATE TABLE `dexuatmon` (
   `MaPhieuDeXuat` int(10) NOT NULL,
   `MaNV` int(8) NOT NULL,
+  `MonDeXuat` varchar(255) NOT NULL,
   `NgayDeXuat` date NOT NULL,
   `GhiChu` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dexuatmon`
+--
+
+INSERT INTO `dexuatmon` (`MaPhieuDeXuat`, `MaNV`, `MonDeXuat`, `NgayDeXuat`, `GhiChu`) VALUES
+(1, 19508461, 'Cơm Sườn Nướng', '2023-11-08', 'Sườn nướng mật ong á!');
 
 -- --------------------------------------------------------
 
@@ -330,8 +345,16 @@ CREATE TABLE `phieudatmon` (
   `MaPhieuDatMon` int(10) NOT NULL,
   `MaNV` int(8) NOT NULL,
   `MaTrangThai` int(5) NOT NULL,
-  `NgayDat` datetime NOT NULL
+  `NgayDat` datetime NOT NULL,
+  `TongTien` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `phieudatmon`
+--
+
+INSERT INTO `phieudatmon` (`MaPhieuDatMon`, `MaNV`, `MaTrangThai`, `NgayDat`, `TongTien`) VALUES
+(1, 19508461, 1, '2023-11-08 17:26:09', 25000);
 
 -- --------------------------------------------------------
 
@@ -386,6 +409,7 @@ ALTER TABLE `cthoadon`
 -- Indexes for table `ctphieudatmon`
 --
 ALTER TABLE `ctphieudatmon`
+  ADD PRIMARY KEY (`MaCTPhieuDatMon`),
   ADD KEY `MaMonAn` (`MaMonAn`),
   ADD KEY `MaPhieuDatMon` (`MaPhieuDatMon`);
 
@@ -458,7 +482,8 @@ ALTER TABLE `nhanvien`
 --
 ALTER TABLE `phieudatmon`
   ADD PRIMARY KEY (`MaPhieuDatMon`),
-  ADD KEY `MaTrangThai` (`MaTrangThai`);
+  ADD KEY `MaTrangThai` (`MaTrangThai`),
+  ADD KEY `MaNV` (`MaNV`);
 
 --
 -- Indexes for table `thucdon`
@@ -489,6 +514,12 @@ ALTER TABLE `cthoadon`
   MODIFY `MaCTHD` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `ctphieudatmon`
+--
+ALTER TABLE `ctphieudatmon`
+  MODIFY `MaCTPhieuDatMon` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `ctthucdon`
 --
 ALTER TABLE `ctthucdon`
@@ -504,7 +535,7 @@ ALTER TABLE `danhgia`
 -- AUTO_INCREMENT for table `dexuatmon`
 --
 ALTER TABLE `dexuatmon`
-  MODIFY `MaPhieuDeXuat` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `MaPhieuDeXuat` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `dinhluong`
@@ -546,7 +577,7 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT for table `phieudatmon`
 --
 ALTER TABLE `phieudatmon`
-  MODIFY `MaPhieuDatMon` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `MaPhieuDatMon` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `thucdon`
@@ -626,7 +657,8 @@ ALTER TABLE `nhanvien`
 -- Constraints for table `phieudatmon`
 --
 ALTER TABLE `phieudatmon`
-  ADD CONSTRAINT `phieudatmon_ibfk_1` FOREIGN KEY (`MaTrangThai`) REFERENCES `trangthaiphieu` (`MaTrangThai`);
+  ADD CONSTRAINT `phieudatmon_ibfk_1` FOREIGN KEY (`MaTrangThai`) REFERENCES `trangthaiphieu` (`MaTrangThai`),
+  ADD CONSTRAINT `phieudatmon_ibfk_2` FOREIGN KEY (`MaNV`) REFERENCES `nhanvien` (`MaNV`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
