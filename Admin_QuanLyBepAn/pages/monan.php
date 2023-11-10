@@ -34,7 +34,7 @@
                     Thịt kho tàu
                 </td>
                 <td>
-                    <img src="../uploads/thit-kho-tau.jpg" style="width: 80px; height: 80px">
+                    <img src="uploads/thit-kho-tau.jpg" style="width: 80px; height: 80px;" alt="thịt kho tàu">
                 </td>
                 <td>
                     25.000
