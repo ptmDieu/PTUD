@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="" />
+</head>
+<body>
+    <div id="boxes" style="height: inherit !important;">
+        <div id="dialog" class="window" style="height: inherit !important;position: fixed; width:800px; top: 50%; left: 50%; transform: translate(-50%, -50%); display: block;">
+            <a onclick="closePopup()" class="closePopup agree"></a>
+            <div class="content">
+                <style>
+                    .class-Tong {
+                        background-color: lightgoldenrodyellow;
+                        font-weight: bold;
+                        color: red;
+                    }
+                </style>  
+                <div class="clearfix" style="margin-bottom: 10px">
+                    <span class="col-md-3 caption-subject font-blue-madison bold">Mã phiếu đặt món: xxx</span>
+                    <div style="float:right">
+                        <span class="caption-subject font-blue-madison bold">Ngày đặt: <span>30/07/2023</span>            </span>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table-custom table table-bordered text-center no-footer dtr-inline" width="100%" role="grid">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_disabled">STT</th>
+                                <th class="sorting_disabled">Món ăn</th>
+                                <th class="sorting_disabled">Số tiền (VNĐ)</th>
+                                <th class="sorting_disabled">Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr role="row">
+                                <td>1</td>
+                                <td>Món a</td>
+                                <td class="text-left">500.000</td>
+                                <td class="text-left">1</td>
+                            </tr>
+                            <tr role="row">
+                                <td>2</td>
+                                <td>Món b</td>
+                                <td class="text-left">300.000</td>
+                                <td class="text-left">3</td>
+                            </tr>
+                            <tr role="row">
+                                <td>3</td>
+                                <td>Món b</td>
+                                <td class="text-left">300.000</td>
+                                <td class="text-left">2</td>
+                            </tr>
+                            <tr role="row">
+                                <td>4</td>
+                                <td>Món b</td>
+                                <td class="text-left">300.000</td>
+                                <td class="text-left">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="mask" style="width: 100%; height: 100vh; display: block; opacity: 0.9;"></div>
+    </div>
+</body>
+</html>
