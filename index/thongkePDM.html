@@ -47,12 +47,12 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
-              <p>Xem phiếu đặt món<i class="right fas fa-angle-left"></i></p>
+              <p>Thống kê<i class="right fas fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/charts/chartjs.php" class="nav-link">'
-                  <i class="far fa-circle nav-icon"></i><p>Xem phiếu đặt món</p>
+                  <i class="far fa-circle nav-icon"></i><p>Thống kê phiếu đặt món</p>
                 </a>
               </li>
             </ul>
@@ -74,69 +74,62 @@
       </div>
       <div class="tab-loading">
         <section>
+          
           <table>
             <tr>
               <th>STT</th>
               <th>Mã phiếu đặt món</th>
-              <th>Mã nhân viên</th>
-              <th>Ngày đặt phiếu</th>
-              <th>Số tiền từng phiếu</th>
-              <th>Thao tác</th>
+              <th>Ngày</th>
+              <th>Tổng số món ăn</th>
+              <th>Món ăn được đặt nhiều nhất</th>
             </tr>
             <tr>
               <td>1</td>
-              <td><a href="./chitietPDM.html" style="color: #0a0a0a";>A001</a></td>
-              <td>NV913 </td>
+              <td>ABD1</td>
               <td>01/11/2023</td>
-              <td>500.000</td>
-              <td>Sửa</td>
+              <td>10</td>
+              <td>Món a</td>
             </tr>
             <tr>
               <td>1</td>
-              <td><a href="./chitietPDM.html" style="color: #0a0a0a";>A001</a></td>
-              <td>NV913 </td>
+              <td>ABD1</td>
               <td>01/11/2023</td>
-              <td>500.000</td>
-              <td>Sửa</td>
+              <td>10</td>
+              <td>Món a</td>
             </tr>
             <tr>
               <td>1</td>
-              <td><a href="./chitietPDM.html" style="color: #0a0a0a";>A001</a></td>
-              <td>NV913 </td>
+              <td>ABD1</td>
               <td>01/11/2023</td>
-              <td>500.000</td>
-              <td>Sửa</td>
+              <td>10</td>
+              <td>Món a</td>
             </tr>
             <tr>
               <td>1</td>
-              <td><a href="./chitietPDM.html" style="color: #0a0a0a";>A001</a></td>
-              <td>NV913 </td>
+              <td>ABD1</td>
               <td>01/11/2023</td>
-              <td>500.000</td>
-              <td>Sửa</td>
+              <td>10</td>
+              <td>Món a</td>
             </tr>
             <tr>
               <td>1</td>
-              <td><a href="./chitietPDM.html" style="color: #0a0a0a";>A001</a></td>
-              <td>NV913 </td>
+              <td>ABD1</td>
               <td>01/11/2023</td>
-              <td>500.000</td>
-              <td>Sửa</td>
+              <td>10</td>
+              <td>Món a</td>
             </tr>
             <tr>
               <td>1</td>
-              <td><a href="./chitietPDM.html" style="color: #0a0a0a";>A001</a></td>
-              <td>NV913 </td>
+              <td>ABD1</td>
               <td>01/11/2023</td>
-              <td>500.000</td>
-              <td>Sửa</td>
+              <td>10</td>
+              <td>Món a</td>
             </tr>
           </table>
-          <span class="text-right">Số phiếu: xx</span>
-          <div class="btn btn-out" type="button">
-            <div class="btn-left"><a href="./thongkePDM.html" style="color: #0a0a0a; margin: 30px" >Thống kê</a></div>
-            <div class="btn-right"><a href="./index.html" style="color: #0a0a0a; margin: 30px">Thoát</a></div>
-          </div>
+          <span class="text-right">Giá tiền phiếu đặt món: xxx.xxx đ</span> 
+          <button class="btn btn-out" type="button">
+            <a href="./index.html" style="color: #0a0a0a";>Thoát</a>
+          </button>
         </section>
       </div>
     </div>
@@ -187,21 +180,13 @@ a{
 }
 
 .btn-out{
+    background-color: #c59d6b;
     font-size: 28px;
+    padding: 10px 50px; /* Khoảng cách giữa nội dung và biên của button */
     display: flex;
-    margin: 10px;
-    margin-top: 90px;
-    justify-content: space-evenly;
-}
-
-.btn-left{
-    background-color: #c59d6b;
-    padding: 5px 25px; /* Khoảng cách giữa nội dung và biên của button */
-}
-
-.btn-right{
-    background-color: #c59d6b;
-    padding: 5px 25px; /* Khoảng cách giữa nội dung và biên của button */
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 </style>
