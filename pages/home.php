@@ -42,7 +42,33 @@
         </div>
         <section class="section">
             <div class="row p-3">
-                <div class="col-lg-4 col-md-6 col-sm-12">
+                <?php
+                include("./class/monan.php");
+                $mon = new Monan();
+
+                $monan = $mon->getAll();
+
+                // var_dump($monan);
+                while ($row = mysqli_fetch_array($monan)) {
+
+                    echo ('
+                    <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
+                    <div class="card">
+                        <img class="card-img-top" style="height: 250px;" src="./uploads/' . $row['HinhAnh'] . '" alt="' . $row['TenMonAn'] . '" />
+                        <div class="card-body">
+                            <h4 class="card-title">' . $row['TenMonAn'] . '</h4>
+                            <p class="card-text">' . $row['ThanhPhan'] . '</p>
+                            <h4 class="card-title">' . number_format($row['GiaTien']) . '</h4>
+                            <a href="?page=ctmonan&id=' . $row['MaMonAn'] . '"  class="btn btn-primary">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+                    ');
+                }
+
+
+                ?>
+                <!-- <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
                         <img class="card-img-top" src="./img/comtam.jpg" alt="Cơm" />
                         <div class="card-body">
@@ -74,7 +100,7 @@
                             <a href="?page=chitetmon" class="btn btn-primary">Đặt món</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
     </div>

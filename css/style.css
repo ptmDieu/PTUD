@@ -166,11 +166,11 @@ a {
     font-size: 18px;
 }
 
-.detail-img {
-    /* margin-left: 50px; */
-    height: 450px;
-    width: 450px;
-}
+/* .detail-img {
+    margin-left: 50px;
+    height: px;
+    width: px;
+} */
 
 .detail-content {
     width: 400px;
@@ -262,4 +262,8 @@ a {
 
 #demo {
     margin-right: 40px;
+}
+
+.img-monan {
+    height: 250px;
 }

@@ -78,6 +78,9 @@
         case "themmon":
           include('./pages/themmon.php');
           break;
+        case "ctmonan":
+          include('./pages/ctmonan.php');
+          break;
         default:
           include('./pages/dashbroad.php');
       }

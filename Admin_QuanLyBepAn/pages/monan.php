@@ -1,3 +1,10 @@
+<?php
+include_once('./classes/food.php');
+$f = new Food();
+$foods = $f->getAll();
+// var_dump($foods);
+
+?>
 <div class="card-body p-0">
     <table class="table table-striped projects">
         <thead>
@@ -5,7 +12,7 @@
                 <th style="width: 1%">
                     #
                 </th>
-                <th style="width: 20%">
+                <th style="width:20%">
                     Tên món ăn
                 </th>
                 <th style="width: 15%">
@@ -15,7 +22,7 @@
                     Giá bán
                 </th>
                 <th style="width: 15%">
-                    Loại
+                    Loại Món Ăn
                 </th>
                 <th style="width: 15%">
                     Trạng thái
@@ -26,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <!-- <tr>
                 <td>
                     01
                 </td>
@@ -64,7 +71,82 @@
                         </a>
                     </div>
                 </td>
-            </tr>
+            </tr> -->
+            <?php
+            if ($foods) {
+                while ($row = mysqli_fetch_array($foods)) {
+                    $trangthai = $row['TrangThai']  == 1 ? "Đang kinh doanh" : "Ngừng kinh doanh";
+                    if ($trangthai == "Ngừng kinh doanh") {
+                        echo '
+                            <tr class="bg-danger">
+                                <td>' . $row['MaMonAn'] . '</td>
+                                <td>' . $row['TenMonAn'] . '</td>
+                                <td>
+                                    <img src="uploads/' . $row['HinhAnh'] . '" width="80px"/>
+                                </td>
+                                <td>' . $row['GiaTien'] . '</td>
+                                
+                                <td>' . $row['TenLoai'] . '</td>
+                                <td>' .  $trangthai . '</td>
+                                <td>
+                                        <div>
+                                            <a class="btn btn-primary btn-sm" href="?page=ctmonan">
+                                                <i class="fas fa-info">
+                                                </i>
+                                                Xem
+                                            </a>
+                                            <a class="btn btn-info btn-sm" href="?page=ctmonan">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Sửa
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" href="#">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Xóa
+                                            </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        ';
+                    } else {
+                        echo '
+                            <tr class="">
+                                <td>' . $row['MaMonAn'] . '</td>
+                                <td>' . $row['TenMonAn'] . '</td>
+                                <td>
+                                    <img src="uploads/' . $row['HinhAnh'] . '" width="80px"/>
+                                </td>
+                                <td>' . $row['GiaTien'] . '</td>
+                                <td>' . $row['TenLoai'] . '</td>
+                                <td>' .  $trangthai . '</td>
+                                <td>
+                                        <div>
+                                            <a class="btn btn-primary btn-sm" href="?page=ctmonan&id=' . $row['MaMonAn'] . '">
+                                                <i class="fas fa-info">
+                                                </i>
+                                                Xem
+                                            </a>
+                                            <a class="btn btn-info btn-sm" href="#">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Sửa
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" href="#">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Xóa
+                                            </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        ';
+                    }
+                }
+            }
+            ?>
+
+
         </tbody>
     </table>
 </div>

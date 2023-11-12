@@ -8,12 +8,38 @@
   <div class="col-lg-9 col-md-9 col-sm-12">
     <!-- Content món ăn chính -->
     <div class="row">
-      <span class="title-mon-an">MÓN ĂN CHÍNH</span>
+      <span class="title-mon-an">THỰC ĐƠN HÔM NAY</span>
     </div>
 
     <section class="section">
       <div class="row p-3">
-        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+        <?php
+        include('./class/monan.php');
+        $getDate = date('Y-m-d');
+        // echo $getDate;
+        // echo gettype($getDate);
+        $menu = new Monan();
+        $getMenu = $menu->getMenuById($getDate);
+        // var_dump($getMenu);
+
+        while ($row = mysqli_fetch_array($getMenu)) {
+          echo ('
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mt-3">
+              <div class="card">
+                <img class="card-img-top" style="height: 250px;" src="./uploads/' . $row['HinhAnh'] . '" alt="Cơm" />
+                <div class="card-body">
+                  <h4 class="card-title">' . $row['TenMonAn'] . '</h4>
+                  <p class="card-text">' . $row['ThanhPhan'] . '</p>
+                  <h4 class="card-title">' . number_format($row['GiaTien']) . '</h4>
+                  <a href="?page=ctmonan&id=' . $row['MaMonAn'] . '" class="btn btn-primary">Đặt món</a>
+                </div>
+              </div>
+            </div>
+
+          ');
+        }
+        ?>
+        <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-12">
           <div class="card">
             <img class="card-img-top" src="./img/comtam.jpg" alt="Cơm" />
             <div class="card-body">
@@ -56,7 +82,7 @@
               <a href="?page=chitietmon" class="btn btn-primary">Đặt món</a>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 

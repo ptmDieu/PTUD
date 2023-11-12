@@ -39,7 +39,7 @@
       if (isset($_GET['page'])) {
         $page = $_GET['page'];
       }
-      echo $page;
+      // echo $page;
       switch ($page) {
         case 'home':
           include('./pages/home.php');
@@ -65,7 +65,7 @@
         case 'xempdm':
           include('./pages/phieudatmon.php');
           break;
-        case 'chitietmon':
+        case 'ctmonan':
           include('./pages/chitietmonan.php');
           break;
         case 'ct-pdm':
