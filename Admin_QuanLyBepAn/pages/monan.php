@@ -1,5 +1,5 @@
 <?php
-include_once('./classes/food.php');
+include('./classes/food.php');
 $f = new Food();
 $foods = $f->getAll();
 // var_dump($foods);
@@ -27,7 +27,7 @@ $foods = $f->getAll();
                 <th style="width: 15%">
                     Trạng thái
                 </th>
-                <th style="width: 18%">
+                <th style="width: 25%">
                     Thao tác
                 </th>
             </tr>
@@ -78,7 +78,7 @@ $foods = $f->getAll();
                     $trangthai = $row['TrangThai']  == 1 ? "Đang kinh doanh" : "Ngừng kinh doanh";
                     if ($trangthai == "Ngừng kinh doanh") {
                         echo '
-                            <tr class="bg-danger">
+                            <tr class="bg-warning">
                                 <td>' . $row['MaMonAn'] . '</td>
                                 <td>' . $row['TenMonAn'] . '</td>
                                 <td>
@@ -90,20 +90,20 @@ $foods = $f->getAll();
                                 <td>' .  $trangthai . '</td>
                                 <td>
                                         <div>
-                                            <a class="btn btn-primary btn-sm" href="?page=ctmonan">
+                                            <a class="btn btn-primary btn-sm" href="?page=ctmonan&id=' . $row['MaMonAn'] . '">
                                                 <i class="fas fa-info">
                                                 </i>
                                                 Xem
                                             </a>
-                                            <a class="btn btn-info btn-sm" href="?page=ctmonan">
+                                            <a class="btn btn-info btn-sm" href="?page=update&id=' . $row['MaMonAn'] . '">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 Sửa
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href="#">
+                                            <a class="btn btn-danger btn-sm" href="?page=status&id=' . $row['MaMonAn'] . '">
                                                 <i class="fas fa-trash">
                                                 </i>
-                                                Xóa
+                                                Đổi trạng thái
                                             </a>
                                     </div>
                                 </td>
@@ -127,15 +127,15 @@ $foods = $f->getAll();
                                                 </i>
                                                 Xem
                                             </a>
-                                            <a class="btn btn-info btn-sm" href="#">
+                                            <a class="btn btn-info btn-sm" href="?page=update&id=' . $row['MaMonAn'] . '">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 Sửa
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href="#">
+                                            <a class="btn btn-danger btn-sm" href="?page=status&id=' . $row['MaMonAn'] . '">
                                                 <i class="fas fa-trash">
                                                 </i>
-                                                Xóa
+                                                Đổi trạng thái
                                             </a>
                                     </div>
                                 </td>

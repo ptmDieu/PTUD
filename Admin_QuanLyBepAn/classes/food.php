@@ -33,6 +33,79 @@ class Food
         $result = $this->db->select($sql);
         return $result ? $result : false;
     }
+
+    public function getStatus()
+    {
+    }
+
+
+    public function addFood($data, $file)
+    {
+        $tenmon = $data['tenmon'];
+        $thanhphan = $data['thanhphan'];
+        $mota = $data['mota'];
+        $giaban = $data['gia'];
+        $image = $file['name'];
+        $chiphi = $data['chiphi'];
+        $loai = $data['loai'];
+        $sql = "insert into monan(TenMonAn,ThanhPhan,MoTa,HinhAnh,GiaTien,ChiPhi,LoaiMonAn) values ('$tenmon','$thanhphan','$mota','$image','$giaban','$chiphi','$loai');";
+        $insert = $this->db->insert($sql);
+        if ($insert && move_uploaded_file($file['tmp_name'], './uploads/' . $image)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateStatus($value, $id)
+    {
+        $sql = "UPDATE monan SET TrangThai = '$value' WHERE MaMonAn = '$id'";
+        $update = $this->db->update($sql);
+        if ($update) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateFood($data, $file)
+    {
+        // var_dump($file);
+        var_dump($data);
+        if ($file['name'] != "") {
+            $id = $data['id'];
+            $tenmon = $data['tenmon'];
+            $thanhphan = $data['thanhphan'];
+            $mota = $data['mota'];
+            $giaban = $data['gia'];
+            $image = $file['name'];
+            $chiphi = $data['chiphi'];
+            $loai = $data['loai'];
+            $sql = "update monan set TenMonAn='$tenmon',ThanhPhan='$thanhphan',MoTa='$mota',HinhAnh='$image',GiaTien='$giaban',ChiPhi='$chiphi',LoaiMonAn='$loai' WHERE MaMonAn='$id'";
+            $update = $this->db->update($sql);
+            if ($update && move_uploaded_file($file['tmp_name'], 'uploads/' . $image)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            $id = $data['id'];
+            $tenmon = $data['tenmon'];
+            $thanhphan = $data['thanhphan'];
+            $mota = $data['mota'];
+            $giaban = $data['gia'];
+            $image = $file['name'];
+            $chiphi = $data['chiphi'];
+            $loai = $data['loai'];
+            $sql = "update monan set TenMonAn='$tenmon',ThanhPhan='$thanhphan',MoTa='$mota',HinhAnh='$image',GiaTien='$giaban',ChiPhi='$chiphi',LoaiMonAn='$loai' WHERE MaMonAn='$id'";
+            $update = $this->db->update($sql);
+            if ($update) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
 
 

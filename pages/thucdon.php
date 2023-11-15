@@ -17,27 +17,35 @@
         include('./class/monan.php');
         $getDate = date('Y-m-d');
         // echo $getDate;
+
         // echo gettype($getDate);
         $menu = new Monan();
         $getMenu = $menu->getMenuById($getDate);
         // var_dump($getMenu);
 
-        while ($row = mysqli_fetch_array($getMenu)) {
-          echo ('
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mt-3">
-              <div class="card">
-                <img class="card-img-top" style="height: 250px;" src="./uploads/' . $row['HinhAnh'] . '" alt="Cơm" />
-                <div class="card-body">
-                  <h4 class="card-title">' . $row['TenMonAn'] . '</h4>
-                  <p class="card-text">' . $row['ThanhPhan'] . '</p>
-                  <h4 class="card-title">' . number_format($row['GiaTien']) . '</h4>
-                  <a href="?page=ctmonan&id=' . $row['MaMonAn'] . '" class="btn btn-primary">Đặt món</a>
+        if ($getMenu) {
+          while ($row = mysqli_fetch_array($getMenu)) {
+            echo ('
+              <div class="col-lg-3 col-md-4 col-sm-6 col-12 mt-3">
+                <div class="card">
+                  <img class="card-img-top" style="height: 250px;" src="./uploads/' . $row['HinhAnh'] . '" alt="Cơm" />
+                  <div class="card-body">
+                    <h4 class="card-title">' . $row['TenMonAn'] . '</h4>
+                    <p class="card-text">' . $row['ThanhPhan'] . '</p>
+                    <h4 class="card-title">' . number_format($row['GiaTien']) . '</h4>
+                    <a href="?page=ctmonan&id=' . $row['MaMonAn'] . '" class="btn btn-primary">Đặt món</a>
+                  </div>
                 </div>
               </div>
-            </div>
-
-          ');
+  
+            ');
+          }
+        } else {
+          echo (' <h4 class="text-center" style="color: red;">Hiện tại chưa có thực đơn cho ngày:' . ' ' . $now = date('d-m-y') . '</h4>');
         }
+
+
+
         ?>
         <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-12">
           <div class="card">

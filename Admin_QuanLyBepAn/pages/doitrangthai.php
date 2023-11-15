@@ -67,57 +67,24 @@ $result = mysqli_fetch_array($result);
                     </div>
                     <div>
                         <label class="title-content">Trạng thái:</label>
-                        <span class="title-content">
-                            <?php
-                            $trangthai = $result['TrangThai']  == 1 ? "Đang kinh doanh" : "Ngừng kinh doanh";
-                            echo $trangthai;
-                            ?>
-                        </span>
+                        <select name="" id="status" class="form-control">
+
+                            <option value="1" <?php
+                                                if ($result['TrangThai'] == 1) {
+                                                    echo ('selected');
+                                                }; ?>>Đang kinh doanh</option>
+                            <option value="0" <?php
+                                                if ($result['TrangThai'] == 0) {
+                                                    echo ('selected');
+                                                }; ?>>Ngừng kinh doanh</option>
+                        </select>
                     </div>
-
-
-
+                    <div style=" display: flex; justify-content: center ; align-items: center; ">
+                        <button type="submit" class="btn btn-primary mt-3" onClick="deleteProduct(<?php $result['MaMonAn'] ?>);">Cập nhật</button>
+                    </div>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-3 col-sm-3"></div>
 
-                <div class="col-6 col-sm-6">
-                    <h4 class="text-center">BẢNG ĐỊNH LƯỢNG MÓN ĂN</h4>
-                    <table class="table table-striped">
-                        <thead>
-
-                            <tr>
-                                <th>Nguyên vật liệu</th>
-                                <th>Số lượng</th>
-                                <th>Đơn vị tính</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($dinhluong = $ct->getFoodCost($id)) {
-
-                                while ($row = mysqli_fetch_array($dinhluong)) {
-                                    echo ('
-                                    <tr>
-                                        <td>' . $row['TenNVL'] . '</td>
-                                        <td>' . $row['DinhLuong'] . '</td>
-                                        <td>' . $row['DonViTinh'] . '</td>
-                                        
-                                    </tr>');
-                                }
-                            } else {
-                                echo ('<h4 class="text-center">Món ăn chưa có định lượng!</h4>');
-                            }
-
-
-                            ?>
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-3 col-sm-3"></div>
-            </div>
         </div>
         <!-- /.card-body -->
     </div>

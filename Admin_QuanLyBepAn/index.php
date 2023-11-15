@@ -81,6 +81,12 @@
         case "ctmonan":
           include('./pages/ctmonan.php');
           break;
+        case "update":
+          include('./pages/suamonan.php');
+          break;
+        case "status":
+          include('./pages/doitrangthai.php');
+          break;
         default:
           include('./pages/dashbroad.php');
       }
