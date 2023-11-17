@@ -87,6 +87,12 @@
         case "status":
           include('./pages/doitrangthai.php');
           break;
+        case "dexuat":
+          include('./pages/xemdexuat.php');
+          break;
+        case "danhgia":
+          include('./pages/danhgia.php');
+          break;
         default:
           include('./pages/dashbroad.php');
       }
@@ -143,6 +149,85 @@
   <!-- <script src="dist/js/demo.js"></script> -->
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="dist/js/pages/dashboard.js"></script>
+  <script>
+    function getValue() {
+      var selectStatus = document.getElementById("status");
+      var value = selectStatus.value;
+      return value;
+    }
+
+    function changeStatus(id, value) {
+      $.ajax({
+        url: 'handle/xulytrangthai.php',
+        method: 'POST',
+        data: {
+          id: id,
+          value: value,
+        },
+        success: (data) => {
+          alert(data.trim())
+          window.location.reload();
+        }
+
+      });
+    }
+
+    $(document).on('click', '.mamon', function() {
+
+
+      if (confirm('Bạn muốn đổi trạng thái món này?')) {
+
+        var id = $(this).data('idmon');
+        var status = getValue()
+        console.log(id, status);
+
+        changeStatus(id, status);
+      }
+
+
+    });
+
+    function getOrder(mapdm) {
+      $.ajax({
+        type: "POST",
+        url: "./handle/loadorder.php",
+        data: {
+          mapdm: mapdm,
+          act: 'PDM'
+        },
+        success: function(response) {
+          // location.reload();
+          $('#detail_order').html(response);
+        }
+      });
+    }
+
+    $(document).on('click', '.detail_order', function() {
+      var ma = $(this).data('mapdm');
+
+      getOrder(ma);
+
+    });
+
+    // $.each($('.detail_order'), function(indexInArray, valueOfElement) {
+    //   valueOfElement.addEventListener('click', (e) => {
+    //     const mapdm = (e.target.dataset.mapdm);
+    // $.ajax({
+    //       type: "POST",
+    //       url: "./handle/loadorder.php",
+    //       data: {
+    //         mapdm,
+    //         act: 'PDM'
+    //       },
+    //       success: function(response) {
+    //         // location.reload();
+    //         $('#detail_order').html(response);
+    //       }
+    //     });
+
+    //   })
+    // });
+  </script>
 </body>
 
 </html>

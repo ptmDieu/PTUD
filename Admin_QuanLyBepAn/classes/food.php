@@ -57,7 +57,7 @@ class Food
         }
     }
 
-    public function updateStatus($value, $id)
+    public function updateStatus($id, $value)
     {
         $sql = "UPDATE monan SET TrangThai = '$value' WHERE MaMonAn = '$id'";
         $update = $this->db->update($sql);

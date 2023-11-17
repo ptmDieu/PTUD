@@ -238,7 +238,7 @@
                 </li>
                 <!-- XEM ĐỀ XUẤT -->
                 <li class="nav-item">
-                    <a href="pages/examples/xemDanhGia.php" class="nav-link">
+                    <a href="?page=danhgia" class="nav-link">
                         <i class="nav-icon fas fa-comment"></i>
                         <p>Xem đánh giá</p>
                     </a>
@@ -254,7 +254,7 @@
                 </li>
                 <!-- XEM ĐỀ XUẤT -->
                 <li class="nav-item">
-                    <a href="pages/examples/xemDeXuat.php" class="nav-link">
+                    <a href="?page=dexuat" class="nav-link">
                         <i class="nav-icon fas fa-star"></i>
                         <p>Xem đề xuất</p>
                     </a>

@@ -80,7 +80,7 @@ $result = mysqli_fetch_array($result);
                         </select>
                     </div>
                     <div style=" display: flex; justify-content: center ; align-items: center; ">
-                        <button type="submit" class="btn btn-primary mt-3" onClick="deleteProduct(<?php $result['MaMonAn'] ?>);">Cập nhật</button>
+                        <button type="button" class="mamon btn btn-primary mt-3" data-idmon=<?php echo ($result['MaMonAn']); ?>>Cập nhật</button>
                     </div>
                 </div>
             </div>
