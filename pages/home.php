@@ -54,7 +54,7 @@
                     echo ('
                     <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
                     <div class="card">
-                        <img class="card-img-top" style="height: 250px;" src="./uploads/' . $row['HinhAnh'] . '" alt="' . $row['TenMonAn'] . '" />
+                        <img class="card-img-top" style="height: 200px;" src="./Admin_QuanLyBepAn/uploads/' . $row['HinhAnh'] . '" alt="' . $row['TenMonAn'] . '" />
                         <div class="card-body">
                             <h4 class="card-title">' . $row['TenMonAn'] . '</h4>
                             <p class="card-text">' . $row['ThanhPhan'] . '</p>
@@ -68,39 +68,6 @@
 
 
                 ?>
-                <!-- <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card">
-                        <img class="card-img-top" src="./img/comtam.jpg" alt="Cơm" />
-                        <div class="card-body">
-                            <h4 class="card-title">Cơm tấm</h4>
-                            <p class="card-text">Sườn, bì, chả</p>
-                            <h4 class="card-title">35.000đ</h4>
-                            <a href="?page=chitetmon" class="btn btn-primary">Đặt món</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card">
-                        <img class="card-img-top" src="./img/comtam.jpg" alt="Cơm" />
-                        <div class="card-body">
-                            <h4 class="card-title">Cơm tấm</h4>
-                            <p class="card-text">Sườn, bì, chả</p>
-                            <h4 class="card-title">35.000đ</h4>
-                            <a href="?page=chitetmon" class="btn btn-primary">Đặt món</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card">
-                        <img class="card-img-top" src="./img/comtam.jpg" alt="Cơm" />
-                        <div class="card-body">
-                            <h4 class="card-title">Cơm tấm</h4>
-                            <p class="card-text">Sườn, bì, chả</p>
-                            <h4 class="card-title">35.000đ</h4>
-                            <a href="?page=chitetmon" class="btn btn-primary">Đặt món</a>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </section>
     </div>

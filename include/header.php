@@ -1,7 +1,29 @@
+<?php
+if (!isset($_COOKIE['idCart'])) {
+    setcookie('idCart', uniqid(), time() + 60 * 60 * 12);
+}
+
+if (isset($_GET['action']) == 'logout') {
+    session_destroy();
+    setcookie('maNV', $user['MaNV'], time() - 60 * 60 * 24 * 30, "/");
+    header('location:index.php');
+}
+// echo $_SESSION['MaKhachHang'];
+
+?>
+
+
 <div class="container-fluid bg-light">
     <div class="row">
         <h6 class="hi">Chào mừng bạn đến với bếp ăn tập đoàn!</h6>
-        <a href="?page=login" class="login"><span>Đăng nhập</span></a>
+        <?php
+        if (!isset($_SESSION['MaNV'])) {
+            echo (' <a href="?page=login" class="login"><span>Đăng nhập</span></a>');
+        }
+        ?>
+
+
+
     </div>
 </div>
 <header>
@@ -24,14 +46,26 @@
                 <div class="title-user">
                     <ul class="nav">
                         <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" data-bs-toggle="dropdown" style="color: #080808; text-decoration: none" href="#">User</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" style="color: #080808; text-decoration: none" href="#">
+                                <?php
+                                if (isset($_SESSION['MaNV'])) {
+                                    echo $_SESSION['TenNV'];
+                                } else {
+                                    echo ('User');
+                                }
+                                ?></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a class="dropdown-item" href="?page=xempdm">Xem Phiếu đặt món</a>
                                 </li>
                                 <li><a class="dropdown-item" href="#">Xem công nợ</a></li>
                                 <li><a class="dropdown-item" href="?page=dexuat">Đề xuất món</a></li>
-                                <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+
+                                <?php
+                                if (isset($_SESSION['MaNV'])) {
+                                    echo ('<li><a class="dropdown-item" href="index.php?action=logout">Đăng xuất</a></li>');
+                                }
+                                ?>
                             </ul>
                         </li>
                     </ul>

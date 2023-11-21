@@ -1,6 +1,7 @@
  <?php
 
-  include("./class/monan.php");
+  require_once("./class/monan.php");
+
   $id = '';
   if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -16,7 +17,7 @@
  </div>
  <div class="row m-3">
    <div class="col-lg-5 col-md-4 col-sm-6 col-12">
-     <img class="" style="height: 380px; width: 510px; margin-left: 150px; " src="./uploads/<?php echo $result['HinhAnh']; ?>" alt="<?php echo $result['TenMonAn']; ?>" />
+     <img class="" style="height: 380px; width: 510px; margin-left: 150px; " src="./Admin_QuanLyBepAn/uploads/<?php echo $result['HinhAnh']; ?>" alt="<?php echo $result['TenMonAn']; ?>" />
    </div>
 
    <div class="col-lg-7 col-md-8 col-sm-6 col-12" style="padding-left: 100px;">
@@ -62,12 +63,12 @@
            <span>QUAY LẠI THỰC ĐƠN</span>
          </button>
        </a>
-       <a href="#">
-         <button class="btn-add">
-           <i class="fa-solid fa-cart-plus" style="font-size: 20px"></i>
-           <span>THÊM VÀO GIỎ</span>
-         </button>
-       </a>
+
+       <button class="btn-add" id="addToCart" data-idmonan="<?php echo $result['MaMonAn']; ?>">
+         <i class="fa-solid fa-cart-plus" style="font-size: 20px"></i>
+         <span>THÊM VÀO GIỎ</span>
+       </button>
+
      </div>
    </div>
  </div>

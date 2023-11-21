@@ -28,7 +28,7 @@
             echo ('
               <div class="col-lg-3 col-md-4 col-sm-6 col-12 mt-3">
                 <div class="card">
-                  <img class="card-img-top" style="height: 250px;" src="./uploads/' . $row['HinhAnh'] . '" alt="Cơm" />
+                  <img class="card-img-top" style="height: 250px;" src="./Admin_QuanLyBepAn/uploads/' . $row['HinhAnh'] . '" alt="Cơm" />
                   <div class="card-body">
                     <h4 class="card-title">' . $row['TenMonAn'] . '</h4>
                     <p class="card-text">' . $row['ThanhPhan'] . '</p>

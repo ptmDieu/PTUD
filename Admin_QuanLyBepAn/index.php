@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (!isset($_SESSION['MaNV']) || $_SESSION['ChucVu'] != 1) {
+  header('location:../index.php');
+}
+
+if (isset($_GET['action']) == 'logout') {
+  session_destroy();
+  header('location:../index.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -115,7 +115,7 @@ $foods = $f->getAll();
                                 <td>' . $row['MaMonAn'] . '</td>
                                 <td>' . $row['TenMonAn'] . '</td>
                                 <td>
-                                    <img src="uploads/' . $row['HinhAnh'] . '" width="80px"/>
+                                    <img src="../Admin_QuanLyBepAn/uploads/' . $row['HinhAnh'] . '" width="80px"/>
                                 </td>
                                 <td>' . $row['GiaTien'] . '</td>
                                 <td>' . $row['TenLoai'] . '</td>

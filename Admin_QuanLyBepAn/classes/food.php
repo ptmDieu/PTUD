@@ -97,7 +97,7 @@ class Food
             $image = $file['name'];
             $chiphi = $data['chiphi'];
             $loai = $data['loai'];
-            $sql = "update monan set TenMonAn='$tenmon',ThanhPhan='$thanhphan',MoTa='$mota',HinhAnh='$image',GiaTien='$giaban',ChiPhi='$chiphi',LoaiMonAn='$loai' WHERE MaMonAn='$id'";
+            $sql = "update monan set TenMonAn='$tenmon',ThanhPhan='$thanhphan',MoTa='$mota',GiaTien='$giaban',ChiPhi='$chiphi',LoaiMonAn='$loai' WHERE MaMonAn='$id'";
             $update = $this->db->update($sql);
             if ($update) {
                 return true;

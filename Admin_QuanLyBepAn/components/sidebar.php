@@ -13,8 +13,15 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin_QLB</a>
+                <a href="#" class="d-block">
+                    <?php
+                    echo $_SESSION['TenNV'];
+
+                    ?>
+                </a>
+
             </div>
+
         </div>
         <!-- SidebarSearch Form -->
         <div class="form-inline">
@@ -268,7 +275,8 @@
                 </li>
             </ul>
         </nav>
-        <!-- /.sidebar-menu -->
+        <a href="index.php?action=logout" style="margin-top: 20px; display:flex; align-items: center; justify-content: center;"><button class="btn-danger btn">Logout</button></a>
+        <!-- /.sidebar-menu-->
     </div>
     <!-- /.sidebar -->
 </aside>

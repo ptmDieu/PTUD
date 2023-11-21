@@ -1,6 +1,6 @@
 <div class="col-lg-3 col-md-3 col-sm-12">
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin-left: 12px;">
             <div class="row">
                 <span class="title-head">DANH MỤC MÓN ĂN</span>
             </div>

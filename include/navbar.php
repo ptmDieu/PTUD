@@ -1,3 +1,10 @@
+<?php
+include('class/giohang.php');
+$giohang = new Cart();
+$qty_cart = $giohang->get_quantity_product_cart();
+$Cart = $giohang->getAll();
+
+?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -29,7 +36,7 @@
             </button>
         </form>
         <div class="cart">
-            <a href="?page=giohang"><i class="fa-solid fa-cart-shopping fa-2xl" style="color: #fcfcfd"></i></a>
+            <a href="?page=giohang" class="qty-cart"><i class="fa-solid fa-cart-shopping fa-2xl" style="color: #fcfcfd"></i> (<?php echo $qty_cart ?>) </a>
         </div>
     </div>
 </nav>
