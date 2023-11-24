@@ -4,6 +4,7 @@ $giohang = new Cart();
 $qty_cart = $giohang->get_quantity_product_cart();
 $Cart = $giohang->getAll();
 
+
 ?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="navbar-header">

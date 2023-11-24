@@ -32,7 +32,7 @@
         <span class="form-message"></span>
       </div>
     </div> -->
-    <button type="submit" class="btn btn-primary">GỬI PHIẾU</button>
+    <button type="button" class="btn btn-primary guidx">GỬI PHIẾU</button>
   </form>
   <div class="spacerbt"></div>
 
@@ -43,6 +43,35 @@
       rules: [
         Validator.isRequired('#mondx')
       ]
+    });
+
+    $(document).on("click", ".guidx", function() {
+      var idnv = checkCookie();
+      var monan = $("#mondx").val();
+      var ghichu = $("#ghichu").val();
+      if (idnv == -1) {
+        alert("Bạn chưa đăng nhập, vui lòng đăng nhập để thực hiện chức năng!")
+      } else {
+        console.log(idnv, monan, ghichu);
+
+        $.ajax({
+          type: "POST",
+          url: "process/process_order.php",
+          data: {
+            idnv,
+            monan,
+            ghichu,
+            act: "guidexuat"
+          },
+          success: function(response) {
+            Swal.fire("Đã gửi đề xuất!");
+            setTimeout(function() {
+              location.reload();
+            }, 2000)
+          },
+        });
+      }
+
     });
   </script>
 </div>

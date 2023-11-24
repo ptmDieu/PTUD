@@ -384,3 +384,9 @@ a {
 .qty-cart {
     text-decoration: none;
 }
+
+#note {
+    width: 70%;
+    font-size: 15px;
+
+}

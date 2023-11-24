@@ -42,6 +42,7 @@ if (isset($_POST['manv']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,6 +87,9 @@ if (isset($_POST['manv']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
         break;
       case 'ct-pdm':
         echo ('Chi tiết phiếu');
+        break;
+      case 'dxcuaban':
+        echo ('Đề xuất của bạn');
         break;
       default:
         echo ('404 Not Found');
@@ -159,6 +163,9 @@ if (isset($_POST['manv']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
           break;
         case 'ct-pdm':
           include('./pages/chitetphieu.php');
+          break;
+        case 'dxcuaban':
+          include('./pages/recommend.php');
           break;
         default:
           include('./pages/404.php');

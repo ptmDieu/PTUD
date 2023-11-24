@@ -26,13 +26,3 @@ if (isset($_POST['makh']) && $_POST['act'] == 'delete_all') {
         echo ("Xóa sản phẩm thất bại");
     }
 }
-
-// test login
-if (isset($_POST['test'])) {
-    if ($_POST['test'] == 'login' && !isset($_COOKIE['maNV'])) {
-        echo "Chưa đăng nhập";
-    } else {
-        // echo "Đã đăng nhập";
-        // header('Location:../checkout.php');
-    }
-}

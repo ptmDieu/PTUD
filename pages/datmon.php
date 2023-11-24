@@ -41,37 +41,47 @@
         }
       }
       ?>
-      <?php
-
-
-      ?>
       <tr class="table-info">
         <td colspan="5" class="title-datmon">TỔNG TIỀN</td>
-        <td colspan="2" style="color: red" class="title-datmon">
-          <span>
+        <td style="color: red; text-align: left;  " class="title-datmon">
+          <span id="total">
             <?php
             $total = $giohang->get_total();
             echo (number_format($total));
             ?>
-
           </span>
           <span>VND</span>
+        </td>
+        <td>
+
+          <!-- <label for="my-input" class="form-check-label"> <strong>Ghi Chú</strong> </label> -->
+          <input id="note" class="form-control" type="text" name="" placeholder="Ghi chú nếu cần!">
+
+
         </td>
       </tr>
     </tbody>
   </table>
-  <div class="row text-center">
-    <div class="">
-      <a href="index.php?page=thucdon">
-        <button class="btn-add">
-          <i class="fa-solid fa-bars" style="font-size: 20px"></i>
-          <span>TIẾP TỤC CHỌN MÓN</span>
-        </button>
-      </a>
+
+
+</div>
+<div class="row text-center">
+  <div class="">
+    <a href="index.php?page=thucdon">
       <button class="btn-add">
-        <i class="fa-solid fa-circle-check" style="font-size: 20px"></i>
-        <span>ĐẶT MÓN</span>
+        <i class="fa-solid fa-bars" style="font-size: 20px"></i>
+        <span>TIẾP TỤC CHỌN MÓN</span>
       </button>
-    </div>
+    </a>
+    <?php
+    if ($Cart) {
+      echo ('<button class="btn-add datmon" id="datmon">
+      <i class="fa-solid fa-circle-check" style="font-size: 20px"></i>
+      <span>ĐẶT MÓN</span>
+    </button>');
+    }
+    ?>
+
   </div>
+</div>
 </div>

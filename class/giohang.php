@@ -119,6 +119,41 @@ class Cart
         }
         return $this->db->update($sql) ? true : false;
     }
+
+    // public function add($makh, $tongtien, $cart, $address, $name, $phone, $note)
+    // {
+    //     $sql = "INSERT INTO tbl_donhang (MaKhachHang,TongTien,TenNguoiNhan,SDTNguoiNhan,DiaChiNguoiNhan) 
+    //     VALUES('$makh','$tongtien','$name','$phone','$address')";
+    //     $this->db->insert($sql);
+    //     $last_id = $this->db->last_id();
+    //     if ($cart != null) {
+    //         foreach ($cart as $item) {
+    //             $sql = 'INSERT INTO `tbl_chitietdonhang` ( `MaDonHang`, `GhiChu`, `MaSanPham`, `SoLuongSP`,`SizeSanPham`)
+    //             VALUES (' . $last_id . ',"' . $note . '",' . $item['MaSanPham'] . ',' . $item['SoLuong'] . ',' . $item['SizeSP'] . ')';
+    //             $this->db->insert($sql);
+    //         }
+    //     }
+    //     $sql = "DELETE FROM tbl_giohang WHERE MaKhachHang='$makh'";
+    //     $this->db->delete($sql);
+    //     return true;
+    // }
+    public function add_Order($maNV, $tongtien, $cart, $ghichu)
+    {
+        $sql = "INSERT INTO phieudatmon (MaNV,TongTien)
+        Value('$maNV','$tongtien') ";
+        $this->db->insert($sql);
+        $last_id = $this->db->last_id();
+        if ($cart != null) {
+            foreach ($cart as $item) {
+                $sql = 'INSERT INTO `ctphieudatmon` ( `MaPhieuDatMon`, `MaMonAn`, `SoLuong`,`GhiChu`)
+                VALUES (' . $last_id . ',' . $item['MaMonAn'] . ',' . $item['SoLuong'] . ',"' . $ghichu . '")';
+                $this->db->insert($sql);
+            }
+        }
+        $sql = "DELETE FROM giohang WHERE MaNV='$maNV'";
+        $this->db->delete($sql);
+        return true;
+    }
 }
 
 ?>

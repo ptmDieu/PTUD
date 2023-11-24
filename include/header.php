@@ -60,7 +60,7 @@ if (isset($_GET['action']) == 'logout') {
                                 </li>
                                 <li><a class="dropdown-item" href="#">Xem công nợ</a></li>
                                 <li><a class="dropdown-item" href="?page=dexuat">Đề xuất món</a></li>
-
+                                <li><a class="dropdown-item" href="?page=dxcuaban">Đề xuất của bạn</a></li>
                                 <?php
                                 if (isset($_SESSION['MaNV'])) {
                                     echo ('<li><a class="dropdown-item" href="index.php?action=logout">Đăng xuất</a></li>');

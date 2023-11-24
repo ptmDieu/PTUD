@@ -42,7 +42,7 @@ const Toast = Swal.mixin({
   toast: true,
   position: "top-end",
   showConfirmButton: false,
-  timer: 2000,
+  timer: 3000,
   timerProgressBar: true,
   didOpen: (toast) => {
     toast.addEventListener("mouseenter", Swal.stopTimer);
@@ -107,7 +107,9 @@ $(document).on("click", ".update_cart", function () {
       icon: "error",
       title: "Số lượng đặt phải > 0 và < 10",
     });
-    window.location.reload();
+    setTimeout(function () {
+      window.location.reload();
+    }, 3000);
   } else {
     $.ajax({
       type: "POST",
@@ -121,5 +123,104 @@ $(document).on("click", ".update_cart", function () {
         location.reload();
       },
     });
+  }
+});
+
+//Check Order currentDate
+
+function checkTime() {
+  var time = new Date();
+  var hours = time.getHours();
+  if (hours >= 0 && hours < 8) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+//Check Cookie
+function checkCookie() {
+  var allCookies = document.cookie;
+  var cookieArray = allCookies.split(";");
+  for (var i = 0; i < cookieArray.length; i++) {
+    var cookie = cookieArray[i].trim();
+
+    if (cookie.indexOf("maNV=") === 0) {
+      var maNV = cookie.substring("maNV=".length);
+      return maNV;
+    }
+  }
+  return -1;
+}
+var check = document.cookie;
+console.log(check);
+//Get total
+function getTotal() {
+  var total = $("#total").text();
+  total = total.replace(/,/g, "");
+  var getTotal = parseInt(total, 10);
+  return getTotal;
+}
+
+// Add Order
+$(document).on("click", ".datmon", function () {
+  var maNV = checkCookie();
+  var tongtien = getTotal();
+  var ghichu = $("#note").val();
+
+  console.log(maNV, tongtien, ghichu);
+
+  if (checkTime() == false) {
+    Swal.fire("Đã quá giờ đặt món!");
+  } else if (maNV == -1) {
+    Swal.fire({
+      icon: "error",
+      title: "Bạn chưa đăng nhập!",
+      text: "Vui lòng đăng nhập để đặt món!",
+      footer:
+        '<a href="?page=login" style="color: black; text-decoration: none;">Đăng nhập </a>',
+    });
+  } else {
+    $.ajax({
+      type: "POST",
+      url: "process/process_order.php",
+      data: {
+        maNV,
+        tongtien,
+        ghichu,
+        act: "datmon",
+      },
+      success: (data) => {
+        Swal.fire("Đặt món thành công!");
+        setTimeout(() => {
+          window.location.href = "index.php?page=xempdm";
+        }, 2000);
+        // location.reload();
+      },
+    });
+  }
+});
+
+//Cancel Order
+
+$(document).on("click", ".huymon", function () {
+  var idphieu = $(this).data("idphieu");
+  if (checkTime() == false) {
+    Swal.fire("Đã quá thời gian hủy phiếu!");
+  } else {
+    if (confirm("Bạn có chắc chắn muốn hủy phiếu đặt món này không?") == true) {
+      $.ajax({
+        type: "POST",
+        url: "process/process_order.php",
+        data: { idphieu: idphieu, act: "huymon" },
+        success: function (data) {
+          Swal.fire("Đã hủy phiếu đặt món!");
+
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        },
+      });
+    }
   }
 });
