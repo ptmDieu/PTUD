@@ -9,16 +9,16 @@
                     <div class="container-fluid">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Món ăn chính</a>
+                                <a class="nav-link" href="?page=loaimon&loai=1">Món ăn chính</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Món Canh</a>
+                                <a class="nav-link" href="?page=loaimon&loai=2">Món Canh</a>
                             </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="?page=loaimon&loai=3">Món ăn phụ</a>
+                            </li> -->
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Món ăn phụ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Tráng miệng</a>
+                                <a class="nav-link" href="?page=loaimon&loai=3">Tráng miệng</a>
                             </li>
                         </ul>
                     </div>

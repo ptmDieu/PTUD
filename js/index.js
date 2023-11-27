@@ -91,6 +91,7 @@ $(document).on("click", ".delete_item", function () {
       url: "process/process_cart.php",
       data: { idCart: id, act: "delete" },
       success: function (data) {
+        alert("Đã xóa món ăn!");
         window.location.reload();
       },
     });

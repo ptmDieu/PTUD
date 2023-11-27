@@ -3,6 +3,7 @@ include('class/giohang.php');
 $giohang = new Cart();
 $qty_cart = $giohang->get_quantity_product_cart();
 $Cart = $giohang->getAll();
+$giohang->checkCart();
 
 
 ?>
@@ -30,9 +31,9 @@ $Cart = $giohang->getAll();
                 <a class="nav-link" href="?page=lienhe">LIÊN HỆ</a>
             </li>
         </ul>
-        <form class="d-flex search">
-            <input class="form-control me-2" type="text" placeholder="Bạn cần tìm gì???" />
-            <button class="btn btn-primary" type="button">
+        <form class="d-flex search" action="index.php?page=timkiem" method="POST">
+            <input class="form-control me-2" name="key" type="text" placeholder="Bạn cần tìm gì???" required />
+            <button class="btn btn-primary" type="submit">
                 <i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i>
             </button>
         </form>

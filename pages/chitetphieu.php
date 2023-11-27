@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
 $detail = new OrderDishes();
 $result = $detail->getOrderByID($id);
 $result = mysqli_fetch_array($result);
-// var_dump($result);
+$feedback = $detail->getFeedbackById($_GET['id']);
 ?>
 
 
@@ -48,7 +48,7 @@ $result = mysqli_fetch_array($result);
         <h5 class="title_info" style="font-weight:bold ;">CHI TIẾT PHIẾU</h5>
     </div>
     <table class="table table-striped">
-        <thead>
+        <thead class="table-primary">
             <tr>
                 <th class="text-center">STT</th>
                 <th>Tên món ăn</th>
@@ -115,15 +115,60 @@ $result = mysqli_fetch_array($result);
         ?>
 
     </div>
+
 </div>
 
+<style>
+    .feedback {
+        background-color: #F2F2F2;
+        width: 100;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+    }
 
+    .feedback ul {
+        width: 50vw;
+        margin: auto;
+    }
+
+    .feedback ul li {
+        /* background-color: #63696e; */
+        color: black;
+        padding: 10px;
+        border-radius: 4px;
+        border: #63696e solid 1px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+<div class="feedback p-5">
+
+    <ul>
+
+        <?php
+
+        if ($feedback) {
+            // Loop through the rows and display the 'DanhGia' field
+            $tt = 0;
+            echo ('<h4 class="">Đánh giá của bạn</h4>');
+            while ($row = mysqli_fetch_array($feedback)) {
+                echo '<li>' . ++$tt . '. '  . $row['DanhGia'] . '</li>';
+            }
+        } else {
+            // If there are no rows, display a message or handle it accordingly
+            // echo '<li>Chưa có đánh giá nào!</li>';
+        }
+        ?>
+
+    </ul>
+</div>
 
 
 <!-- The Modal -->
 <div class="modal" id="myModal">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <form action="./process/feedback.php" method="POST" class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
@@ -138,16 +183,17 @@ $result = mysqli_fetch_array($result);
                         <span>Đánh giá của bạn:</span>
                     </div>
                     <div>
-                        <input type="text" class="form-control mt-2" placeholder="Nhập đánh giá của bạn tại đây nhé!">
+                        <input type="text" class="form-control mt-2" placeholder="Nhập đánh giá của bạn tại đây nhé!" name="feedback">
+                        <input type="hidden" class="form-control mt-2" value="<?= $_GET['id'] ?>" name="id">
                     </div>
                 </div>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer feedback ">
-                <button type="button" class="btn btn-success " data-bs-dismiss="modal">Lưu</button>
+                <button type="submit" class="btn btn-success " data-bs-dismiss="modal">Lưu</button>
             </div>
 
-        </div>
+        </form>
     </div>
 </div>

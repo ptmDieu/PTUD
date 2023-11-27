@@ -60,6 +60,37 @@ class OrderDishes
         $sql = "UPDATE `phieudatmon` SET `MaTrangThai` = '3' WHERE `phieudatmon`.`MaPhieuDatMon` = " . $idphieu;
         return $this->db->update($sql) ? true : false;
     }
+    public function addFeedback($id, $feedback)
+    {
+        $sql = 'INSERT INTO `danhgia` (`MaPhieuDatMon`, `DanhGia`) VALUES  (' . $id . ',"' . $feedback . '" )';
+        return $this->db->insert($sql);
+    }
+    public function getFeedbackById($id)
+    {
+        $sql = 'SELECT * FROM danhgia WHERE MaPhieuDatMon = ' . $id;
+
+        // Call the select method once
+        $result = $this->db->select($sql);
+        if ($result) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
+    public function getOrderSucces($maNV)
+    {
+        $sql = "SELECT *
+        FROM phieudatmon
+        JOIN ctphieudatmon ON phieudatmon.MaPhieuDatMon = ctphieudatmon.MaPhieuDatMon
+        JOIN monan ON ctphieudatmon.MaMonAn = monan.MaMonAn
+        JOIN trangthaiphieu ON trangthaiphieu.MaTrangThai = phieudatmon.MaTrangThai
+        WHERE phieudatmon.MaNV = " . $maNV . "
+          AND phieudatmon.MaTrangThai IN (1, 2)
+        ORDER BY NgayDat DESC;";
+
+        return $this->db->select($sql) ? $this->db->select($sql) : false;
+    }
 }
 
 

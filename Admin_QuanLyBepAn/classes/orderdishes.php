@@ -33,6 +33,14 @@ class OrderDishes
 
         return $this->db->select($sql) ? $this->db->select($sql) : false;
     }
+    public function get_Qty($maphieu)
+    {
+        $sql = "SELECT MaPhieuDatMon, COUNT(*) AS SoMon
+        FROM ctphieudatmon
+        WHERE MaPhieuDatMon = " . $maphieu . "
+        GROUP BY MaPhieuDatMon;";
+        return $this->db->select($sql) ? $this->db->select($sql) : false;
+    }
 }
 
 

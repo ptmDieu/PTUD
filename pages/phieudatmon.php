@@ -9,7 +9,7 @@
   ?>
   <table class="table table-striped">
     <thead>
-      <tr>
+      <tr class="table-primary">
         <th class="text-center">STT</th>
         <th class="text-center">Mã phiếu đặt món</th>
         <th class="text-center">Thời gian</th>

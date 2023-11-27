@@ -63,7 +63,7 @@ class Cart
             $makh = $_COOKIE['maNV'];
             $sql = "SELECT * FROM giohang,monan WHERE giohang.MaMonAn = monan.MaMonAn AND MaNV = '$makh'";
         } else {
-            $idCart = $_COOKIE['idCart'];
+            $idCart = isset($_COOKIE['idCart']) ? $_COOKIE['idCart'] : '';
             $sql = "SELECT * FROM giohang, monan WHERE giohang.MaMonAn = monan.MaMonAn AND id='$idCart'";
         }
 
@@ -153,6 +153,30 @@ class Cart
         $sql = "DELETE FROM giohang WHERE MaNV='$maNV'";
         $this->db->delete($sql);
         return true;
+    }
+    public function checkCart()
+    {
+        $maNV = "";
+        if (isset($_SESSION['MaNV'])) {
+            $maNV = $_SESSION['MaNV'];
+        }
+
+        $sql = 'SELECT * FROM giohang WHERE id = "' . $_COOKIE['idCart'] . '" OR MaNV = "' . $maNV . '"';
+
+        $result = $this->db->select($sql);
+        if ($result) {
+            // var_dump(mysqli_fetch_array($result)['NgayTao'], date('Y-m-d'));
+            // Chuyển đổi ngày thành timestamp
+            $timestamp1 = strtotime(mysqli_fetch_array($result)['NgayTao']);
+            $timestamp2 = strtotime(date('Y-m-d'));
+
+            // So sánh các timestamp
+            if ($timestamp1 < $timestamp2) {
+                // echo "$date1 is earlier than $date2";
+                $sql = 'DELETE FROM giohang WHERE id ="' . $_COOKIE['idCart'] . '" OR MaNV="' . $maNV . '"';
+                $this->db->delete($sql);
+            }
+        }
     }
 }
 

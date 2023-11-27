@@ -40,6 +40,31 @@ class Monan
         $result = $this->db->select($sql);
         return $result ? $result : false;
     }
+
+    public function get_dish_by_category($category)
+    {
+        $sql = "SELECT * FROM `monan` WHERE LoaiMonAn = '$category' AND TrangThai = 1";
+        // var_dump($sql);
+        $result = $this->db->select($sql);
+        if ($result && $result->num_rows > 0) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function searchDish($key)
+    {
+        $sql = "SELECT * FROM `monan` WHERE TenMonAN LIKE '%$key%'";
+        $result = $this->db->select($sql);
+
+        if ($result && $result->num_rows > 0) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

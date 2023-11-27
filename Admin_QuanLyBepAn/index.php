@@ -105,6 +105,9 @@ if (isset($_GET['action']) == 'logout') {
         case "danhgia":
           include('./pages/danhgia.php');
           break;
+        case "pdm":
+          include('./pages/phieudatmon.php');
+          break;
         default:
           include('./pages/dashbroad.php');
       }
@@ -210,6 +213,7 @@ if (isset($_GET['action']) == 'logout') {
         success: function(response) {
           // location.reload();
           $('#detail_order').html(response);
+          $('#exampleModalLabel').html('Chi tiết phiếu đặt món: ' + mapdm);
         }
       });
     }

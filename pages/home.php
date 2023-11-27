@@ -59,7 +59,7 @@
                             <h4 class="card-title">' . $row['TenMonAn'] . '</h4>
                             <p class="card-text">' . $row['ThanhPhan'] . '</p>
                             <h4 class="card-title">' . number_format($row['GiaTien']) . '</h4>
-                            <a href="?page=ctmonan&id=' . $row['MaMonAn'] . '"  class="btn btn-primary">Xem chi tiết</a>
+                            <a href="?page=thongtinmon&id=' . $row['MaMonAn'] . '"  class="btn btn-primary">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>

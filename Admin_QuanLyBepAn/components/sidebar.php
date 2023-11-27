@@ -252,7 +252,7 @@
                 </li>
                 <!-- Phiếu đặt món -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="index.php?page=pdm" class="nav-link">
                         <i class="nav-icon fas fa-clipboard-list"></i>
                         <p>
                             Xem phiếu đặt món

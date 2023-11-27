@@ -7,25 +7,25 @@ $ketqua = $fb->getFeedback();
 ?>
 <div class="card-body p-0">
     <table class="table table-striped projects">
-        <thead>
+        <thead class="table-primary">
             <tr>
-                <th style="width: 15%">
+                <th class="text-center">
                     Mã đánh giá
                 </th>
-                <th style="width: 15%">
+                <th class="text-center">
                     Mã phiếu đặt món
                 </th>
-                <th style="width: 15%">
+                <th class="text-center">
                     Mã nhân viên
                 </th>
-                <th style="width:20%">
+                <th class="text-center">
                     Tên nhân viên
                 </th>
-                <th style="width: 30">
+                <th class="text-left ml-5">
                     Đánh giá món ăn
                 </th>
 
-                <th style="width: 15%">
+                <th class="text-center">
                     Thao tác
                 </th>
 
@@ -78,22 +78,22 @@ $ketqua = $fb->getFeedback();
                     // echo $maPDH;
                     echo ('
                 <tr>
-                   <td class ="">
+                   <td class ="text-center">
                        ' . $row['MaPhieuDanhGia'] . '
                    </td>
-                   <td>
+                   <td class="text-center">
                        ' . $row['MaPhieuDatMon'] . '
                    </td>
-                   <td>
+                   <td class="text-center"> 
                    ' . $row['MaNV'] . '
                </td>
-                   <td class="">
+                   <td class="text-center">
                    ' . $row['TenNV'] . '
                     </td>
-                   <td>
+                   <td class="text-left ml-5">
                        ' . $row['DanhGia'] . '
                    </td>
-                   <td>
+                   <td class="text-center">
                    <button type="button" class="btn btn-primary detail_order" data-toggle="modal" data-maPDM=' . $maPDH . ' data-target="#exampleModal">
                            Chi tiết
                    </button>
@@ -130,11 +130,11 @@ $ketqua = $fb->getFeedback();
                     <table class="table table-hover ">
                         <thead>
                             <tr>
-                                <th>Tên Món ăn</th>
-                                <th>Giá bán</th>
-                                <th>Số lượng</th>
-                                <th>Ngày đặt</th>
-                                <th>
+                                <th class="text-center">Tên Món ăn</th>
+                                <th class="text-center">Giá bán</th>
+                                <th class="text-center">Số phần</th>
+                                <th class="text-center">Ngày đặt</th>
+                                <th class="text-center">
                                     Thành tiền
                                 </th>
                             </tr>

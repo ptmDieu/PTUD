@@ -91,6 +91,18 @@ if (isset($_POST['manv']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
       case 'dxcuaban':
         echo ('Đề xuất của bạn');
         break;
+      case 'loaimon':
+        echo ('Loại Món Ăn');
+        break;
+      case 'thongtinmon':
+        echo ('Thông tin món');
+        break;
+      case 'timkiem':
+        echo ('Tìm kiếm');
+        break;
+      case 'congno':
+        echo ('Công nợ');
+        break;
       default:
         echo ('404 Not Found');
         break;
@@ -166,6 +178,18 @@ if (isset($_POST['manv']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
           break;
         case 'dxcuaban':
           include('./pages/recommend.php');
+          break;
+        case 'thongtinmon':
+          include('./pages/xemthongtin.php');
+          break;
+        case 'loaimon':
+          include('./pages/loaimonan.php');
+          break;
+        case 'timkiem':
+          include('./pages/timkiem.php');
+          break;
+        case 'congno':
+          include('./pages/congno.php');
           break;
         default:
           include('./pages/404.php');

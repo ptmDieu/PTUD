@@ -10,6 +10,8 @@ if (isset($_GET['action']) == 'logout') {
 }
 // echo $_SESSION['MaKhachHang'];
 
+
+
 ?>
 
 
@@ -58,7 +60,7 @@ if (isset($_GET['action']) == 'logout') {
                                 <li>
                                     <a class="dropdown-item" href="?page=xempdm">Xem Phiếu đặt món</a>
                                 </li>
-                                <li><a class="dropdown-item" href="#">Xem công nợ</a></li>
+                                <li><a class="dropdown-item" href="?page=congno">Xem công nợ</a></li>
                                 <li><a class="dropdown-item" href="?page=dexuat">Đề xuất món</a></li>
                                 <li><a class="dropdown-item" href="?page=dxcuaban">Đề xuất của bạn</a></li>
                                 <?php
