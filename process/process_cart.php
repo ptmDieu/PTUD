@@ -9,8 +9,8 @@ if (isset($_POST['idCart']) && $_POST['act'] == 'delete') {
         echo ("Xóa sản phẩm thất bại");
     }
 }
-if (isset($_POST['mamonan']) && $_POST['act'] == 'update_cart') {
-    if ($cart->update_cart($_POST['mamonan'], $_POST['qty'])) {
+if (isset($_POST['magiohang']) && $_POST['act'] == 'update_cart') {
+    if ($cart->update_cart($_POST['magiohang'], $_POST['qty'])) {
 
         echo ($cart->get_total());
     } else {

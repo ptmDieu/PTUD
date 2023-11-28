@@ -101,8 +101,14 @@ $(document).on("click", ".delete_item", function () {
 
 //update item in cart
 $(document).on("click", ".update_cart", function () {
-  var mamonan = $(this).data("id");
-  var qty = $(".soluong").val();
+  var magiohang = $(this).data("id");
+  var soLuongInput = document.querySelector(
+    '.soluong[data-id="' + magiohang + '"]'
+  );
+
+  var qty = soLuongInput.value;
+  console.log(qty);
+  // var qty = $(".soluong").val();
   if (qty <= 0 || qty > 10) {
     Toast.fire({
       icon: "error",
@@ -116,7 +122,7 @@ $(document).on("click", ".update_cart", function () {
       type: "POST",
       url: "process/process_cart.php",
       data: {
-        mamonan,
+        magiohang,
         qty,
         act: "update_cart",
       },

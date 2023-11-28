@@ -29,7 +29,7 @@
                 <td>' . $row['TenMonAn'] . '</td>
                 <td><img src="Admin_QuanLyBepAn/uploads/' . $row['HinhAnh'] . '" style= "height: 70px; width: 70px;" alt="' . $row['TenMonAn'] . '"></td>
                 <td>' . number_format($row['GiaTien']) . '</td>
-                <td><input class="input-text soluong" type="number" value="' . $row['SoLuong'] . '" /></td>
+                <td><input class="input-text soluong" type="number" value="' . $row['SoLuong'] . '" data-id="' . $row['MaGioHang'] . '" /></td>
                 <td>' . number_format($thanhtien = $row['SoLuong'] * $row['GiaTien']) . ' VND</td>
                 <td>
                   <button class="btn-success btn update_cart" data-id =' . $row['MaGioHang'] . '><span>Cập nhật</span></button>
