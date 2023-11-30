@@ -2,6 +2,21 @@
 $loai = $_GET['loai'];
 ?>
 
+<?php
+$pre_page = 3;
+if (isset($_GET['trang'])) {
+    $trang  = $_GET['trang'];
+} else {
+    $trang = 1;
+}
+
+if ($trang == "" || $trang == 1) {
+    $star = 0;
+} else {
+    $star = ($trang * $pre_page) - $pre_page;
+}
+
+?>
 
 <div class="row">
 
@@ -32,8 +47,9 @@ $loai = $_GET['loai'];
                 include("./class/monan.php");
                 $monan = new Monan();
                 if ($loai <= 3 && $loai >= 1) {
-                    $ketqua = $monan->get_dish_by_category($loai);
+                    $ketqua = $monan->get_dish_by_category($loai, $star, $pre_page);
 
+                    $maxpage = ceil(($monan->getNumRowCategory($loai) / $pre_page));
 
                     // var_dump($monan);
                     while ($row = mysqli_fetch_array($ketqua)) {
@@ -63,4 +79,25 @@ $loai = $_GET['loai'];
             </div>
         </section>
     </div>
+</div>
+
+
+<div class="list">
+    <span>Trang:</span>
+    <ul>
+        <!-- <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li> -->
+        <?php
+        for ($i = 1; $i <= $maxpage; $i++) {
+            echo '<li';
+            // Kiểm tra nếu đây là trang hiện tại, thêm class active
+            if ($i == $trang) {
+                echo ' class="active"';
+            }
+            echo '><a href="index.php?page=loaimon&loai=1&trang=' . $i . '">' . $i . '</a></li>';
+        }
+        ?>
+
+    </ul>
 </div>

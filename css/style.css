@@ -82,7 +82,9 @@ aside {
     margin: 5px 0 5px 0;
 }
 
-
+ul {
+    padding: 0;
+}
 
 footer {
     height: max-content;
@@ -389,4 +391,46 @@ a {
     width: 70%;
     font-size: 15px;
 
+}
+
+.list {
+    /* background-color: #C59D6B; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.list ul {
+    margin: 10px 0 10px 0;
+    padding: 0;
+
+
+}
+
+.list ul li {
+    float: left;
+    margin-left: 15px;
+    background-color: #C59D6B;
+    border: #fff solid 1px;
+    border-radius: 5px;
+
+}
+
+
+.list ul li a {
+    text-decoration: none;
+    padding: 10px;
+
+}
+
+.list span {
+    color: #C59D6B;
+    font-weight: bold;
+}
+
+.active {
+    background-color: black !important;
 }

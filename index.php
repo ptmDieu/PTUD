@@ -50,7 +50,7 @@ if (isset($_POST['manv']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="img/icon.png" type="image/x-icon" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
   <title>
     <?php
     $page = 'home';
@@ -111,14 +111,17 @@ if (isset($_POST['manv']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
   </title>
   <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
   <script src="./js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/info.css">
   <link rel="stylesheet" href="./css/login.css">
   <link rel="stylesheet" href="./Font/fontawesome-free-6.4.2-web/css/all.min.css" />
+
 </head>
 
 <body>
+
   <!-- header -->
   <?php
   include('./include/header.php')
@@ -199,6 +202,12 @@ if (isset($_POST['manv']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
       ?>
     </div>
 
+
+
+
+
+
+
     <!-- footer -->
     <?php
     include('./include/footer.php')
@@ -206,16 +215,12 @@ if (isset($_POST['manv']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <!-- end footer -->
   </div>
+  <script src="js/jquery-3.6.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/index.js"></script>
-  <!-- <script>
-    Swal.fire({
-      title: 'Error!',
-      text: 'Do you want to continue',
-      icon: 'error',
-      confirmButtonText: 'Cool'
-    })
-  </script> -->
+  <script>
+
+  </script>
 </body>
 
 </html>

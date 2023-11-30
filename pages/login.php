@@ -10,14 +10,20 @@
       <span class="subtitle">Đăng nhập để sử dụng hệ thống toàn diện.</span>
     </div>
     <br />
+
     <div class="input_container">
       <label class="input_label" for="ma_nv">Mã nhân viên:</label>
       <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
         <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34" d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
         <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34" d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z"></path>
       </svg>
-      <input placeholder="19508461" title="Inpit title" name="manv" type="text" class="input_field" id="ma_nv" />
+      <input placeholder="19508461" title="Inpit title" name="manv" type="text" class="input_field idnv" id="ma_nv" />
     </div>
+    <small class="" id="ma_nv_mess" style=" font-size:12px; font-weight:bold; color: red; padding-right: 275px;"></small>
+
+
+
+
     <div class="input_container">
       <label class="input_label" for="password_field">Password</label>
       <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
@@ -27,11 +33,19 @@
       </svg>
       <input placeholder="Password" title="Inpit title" name="password" type="password" class="input_field" id="password_field" />
     </div>
+    <small class="" id="pass_mess" style=" font-size:12px; font-weight:bold; color: red; padding-right: 275px;"></small>
     <?php
-    if ($flag == 1) {
-      echo '
-                      <strong style="color: red;">Sai tên đăng nhập hoặc mật khẩu!</strong>
-                    ';
+
+    if (isset($_POST['manv'])) {
+      if ($_POST['manv'] == "" || $_POST['password'] == '')
+        echo '
+        <strong style="color: red;">Vui lòng nhập đầy đủ thông tin!</strong>
+      ';
+      else if ($flag == 1) {
+        echo '
+                        <strong style="color: red;">Sai tên đăng nhập hoặc mật khẩu!</strong>
+                      ';
+      }
     }
     ?>
     <button title="Sign In" type="submit" class="sign-in_btn">
@@ -39,3 +53,48 @@
     </button>
   </form>
 </div>
+<script>
+  // validation form login.
+  function validateID() {
+
+    var maNhanVienInput = document.getElementById('ma_nv');
+    var maNhanVienMessage = document.getElementById('ma_nv_mess');
+
+    // Lấy giá trị đầu vào.
+    var maNhanVienValue = maNhanVienInput.value.trim();
+    var passValue = inputPass.value.trim();
+
+
+    if (maNhanVienValue === '') {
+      maNhanVienMessage.innerHTML = 'Không để trống trường này!';
+      maNhanVienInput.focus();
+      return false;
+    } else if (!(/^\d{8}$/.test(maNhanVienValue))) {
+      maNhanVienMessage.innerHTML = 'Mã nhân viên không hợp lệ!';
+      maNhanVienInput.focus();
+      return false;
+    } else {
+      maNhanVienMessage.innerHTML = ''; // Xóa thông báo nếu hợp lệ
+    }
+
+    // Nếu tất cả kiểm tra thành công, cho phép submit form
+    return true;
+
+  }
+
+
+  function validatePassword() {
+    var inputPass = document.getElementById('password_field');
+    var mess = document.getElementById('pass_mess');
+
+
+    if (passValue == '') {
+      mess.innerHTML = "Password không được để trống!"
+      inputPass.focus();
+      return false;
+    } else {
+      mess.innerHTML = "";
+    }
+    return true;
+  }
+</script>

@@ -1,3 +1,18 @@
+<?php
+$pre_page = 6;
+if (isset($_GET['trang'])) {
+    $trang  = $_GET['trang'];
+} else {
+    $trang = 1;
+}
+
+if ($trang == "" || $trang == 1) {
+    $star = 0;
+} else {
+    $star = ($trang * $pre_page) - $pre_page;
+}
+
+?>
 <div id="demo" class="carousel slide " data-bs-ride="carousel">
     <!-- Indicators/dots -->
     <div class="carousel-indicators">
@@ -46,9 +61,10 @@
                 include("./class/monan.php");
                 $mon = new Monan();
 
-                $monan = $mon->getAll();
+                $monan = $mon->getAll($star);
+                $numrow = $mon->getNumRow();
+                $maxpage = ceil($numrow / $pre_page);
 
-                // var_dump($monan);
                 while ($row = mysqli_fetch_array($monan)) {
 
                     echo ('
@@ -71,4 +87,23 @@
             </div>
         </section>
     </div>
+</div>
+<div class="list">
+    <span>Trang:</span>
+    <ul>
+        <!-- <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li> -->
+        <?php
+        for ($i = 1; $i <= $maxpage; $i++) {
+            echo '<li';
+            // Kiểm tra nếu đây là trang hiện tại, thêm class active
+            if ($i == $trang) {
+                echo ' class="active"';
+            }
+            echo '><a href="index.php?trang=' . $i . '">' . $i . '</a></li>';
+        }
+        ?>
+
+    </ul>
 </div>

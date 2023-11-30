@@ -1,3 +1,19 @@
+<?php
+$pre_page = 8;
+if (isset($_GET['trang'])) {
+  $trang  = $_GET['trang'];
+} else {
+  $trang = 1;
+}
+
+if ($trang == "" || $trang == 1) {
+  $star = 0;
+} else {
+  $star = ($trang * $pre_page) - $pre_page;
+}
+
+?>
+
 <div class="row">
   <!-- sidebar-menu -->
   <?php
@@ -20,8 +36,8 @@
 
         // echo gettype($getDate);
         $menu = new Monan();
-        $getMenu = $menu->getMenuById($getDate);
-        // var_dump($getMenu);
+        $getMenu = $menu->getMenuById($getDate, $star, $pre_page);
+        $maxpage = ceil(($menu->getNumRowMenu($getDate) / $pre_page));
 
         if ($getMenu) {
           while ($row = mysqli_fetch_array($getMenu)) {
@@ -233,4 +249,24 @@
             </div>
           </section> -->
   </div>
+</div>
+
+<div class="list">
+  <span>Trang:</span>
+  <ul>
+    <!-- <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li> -->
+    <?php
+    for ($i = 1; $i <= $maxpage; $i++) {
+      echo '<li';
+      // Kiểm tra nếu đây là trang hiện tại, thêm class active
+      if ($i == $trang) {
+        echo ' class="active"';
+      }
+      echo '><a href="index.php?page=thucdon&trang=' . $i . '">' . $i . '</a></li>';
+    }
+    ?>
+
+  </ul>
 </div>

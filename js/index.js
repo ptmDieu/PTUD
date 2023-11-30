@@ -1,41 +1,46 @@
 //Hàm validation
 function Validator(option) {
   //get form validation
+  // Hàm validate.
+  function validate(inputElement, rule) {
+    var errorMessage = rule.test(inputElement.value);
+    var errorElement =
+      inputElement.parentElement.querySelector(".form-message");
 
+    if (errorMessage) {
+      errorElement.innerText = errorMessage;
+      inputElement.parentElement.classList.add("invalid");
+    } else {
+      errorElement.innerText = "";
+      inputElement.parentElement.classList.remove("invalid");
+    }
+  }
+  // Lấy Element form phiếu đề xuất.
   var formElement = document.querySelector(option.form);
+  console.log(formElement);
 
   if (formElement) {
     option.rules.forEach(function (rule) {
       var inputElement = document.querySelector(rule.selector);
-      var errorElement =
-        inputElement.parentElement.querySelector(".form-message");
       if (inputElement) {
         inputElement.onblur = function () {
-          var errorMessage = rule.test(inputElement.value);
-          if (errorMessage) {
-            errorElement.innerText = errorMessage;
-            inputElement.parentElement.classList.add("invalid");
-          } else {
-            errorElement.innerText = "";
-            inputElement.parentElement.classList.remove("invalid");
-          }
+          validate(inputElement, rule);
         };
       }
     });
   }
 }
 //Rules
-
+//
 Validator.isRequired = function (selector) {
   return {
     selector: selector,
     test: function (value) {
-      return value.trim()
-        ? undefined
-        : "Vui lòng nhập tên món ăn muốn đề xuất!";
+      return value.trim() ? undefined : "Vui lòng nhập trường thông tin này!";
     },
   };
 };
+
 //
 
 const Toast = Swal.mixin({
@@ -126,8 +131,14 @@ $(document).on("click", ".update_cart", function () {
         qty,
         act: "update_cart",
       },
-      success: function (data) {
-        location.reload();
+      success: function () {
+        Toast.fire({
+          icon: "success",
+          title: "Đã cập nhật số lượng mới!",
+        });
+        setTimeout(function () {
+          location.reload();
+        }, 2000);
       },
     });
   }
@@ -214,6 +225,7 @@ $(document).on("click", ".huymon", function () {
   var idphieu = $(this).data("idphieu");
   if (checkTime() == false) {
     Swal.fire("Đã quá thời gian hủy phiếu!");
+    // alert("Hiện tại không thể hủy món!");
   } else {
     if (confirm("Bạn có chắc chắn muốn hủy phiếu đặt món này không?") == true) {
       $.ajax({

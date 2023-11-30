@@ -10,6 +10,11 @@ $detail = new OrderDishes();
 $result = $detail->getOrderByID($id);
 $result = mysqli_fetch_array($result);
 $feedback = $detail->getFeedbackById($_GET['id']);
+$now = date('y-m-d');
+$nowObj = new DateTime($now);
+$now = $nowObj->format("Y-m-d");
+// echo ($now);
+
 ?>
 
 
@@ -96,12 +101,18 @@ $feedback = $detail->getFeedbackById($_GET['id']);
 
         <?php
         if ($result['MaTrangThai'] == 1) {
-            echo ('
+            if ($now <= $result['NgayDat']) {
+                echo ('
                 <button class="btn-add huymon" data-idphieu=' . $result['MaPhieuDatMon'] . ' >
                 <i class="fa-solid fa-xmark" style="font-size: 20px"></i>
                 <span>HỦY PHIẾU</span>
                 </button>
             ');
+            } else {
+                echo ('
+                <h4>Đã quá ngày không thể hủy phiếu!</h4>
+            ');
+            }
         } else if ($result['MaTrangThai'] == 2) {
             echo ('
                 <button class="btn-add" data-bs-toggle="modal" data-bs-target="#myModal">

@@ -26,7 +26,7 @@
      </div>
      <div class="price detail-content">
        <span>Giá bán:</span>
-       <span><?php echo number_format($result['GiaTien']) . " " . "VND"; ?></span>
+       <span style="font-weight: bold; color: red;"><?php echo number_format($result['GiaTien']) . " " . "VND"; ?></span>
      </div>
 
      <div class="review detail-content">

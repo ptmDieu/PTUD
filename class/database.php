@@ -87,4 +87,20 @@ class Database
     {
         return $this->link->insert_id;
     }
+
+    public function get_Numrow($query)
+    {
+        $num_row = $this->link->query($query);
+
+        if ($num_row !== false) {
+
+            if ($num_row->num_rows > 0) {
+                return $result =  $num_row->num_rows;
+            } else {
+                return 0;
+            }
+        } else {
+            return false;
+        }
+    }
 }
