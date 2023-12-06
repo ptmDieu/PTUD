@@ -50,13 +50,13 @@ $result = mysqli_fetch_array($result);
                     <div>
                         <label class="title-content">Giá bán:</label>
                         <span class="title-content">
-                            <?php echo number_format($result['GiaTien']) ?>
+                            <?php echo number_format($result['GiaTien']) ?> VNĐ
                         </span>
                     </div>
                     <div>
                         <label class="title-content">Chi phí:</label>
                         <span class="title-content">
-                            <?php echo number_format($result['GiaTien']) ?>
+                            <?php echo number_format($result['ChiPhi']) ?> VNĐ
                         </span>
                     </div>
                     <div>

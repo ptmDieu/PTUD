@@ -50,7 +50,8 @@ class Food
         $loai = $data['loai'];
         $sql = "insert into monan(TenMonAn,ThanhPhan,MoTa,HinhAnh,GiaTien,ChiPhi,LoaiMonAn) values ('$tenmon','$thanhphan','$mota','$image','$giaban','$chiphi','$loai');";
         $insert = $this->db->insert($sql);
-        if ($insert && move_uploaded_file($file['tmp_name'], './uploads/' . $image)) {
+        if ($insert) {
+            move_uploaded_file($file['tmp_name'], './uploads/' . $image);
             return true;
         } else {
             return false;
@@ -71,7 +72,7 @@ class Food
     public function updateFood($data, $file)
     {
         // var_dump($file);
-        var_dump($data);
+        // var_dump($data);
         if ($file['name'] != "") {
             $id = $data['id'];
             $tenmon = $data['tenmon'];

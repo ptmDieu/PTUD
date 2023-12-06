@@ -40,7 +40,9 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
+                    <a href="#" class="nav-link <?php if (isset($pape) == "dashboard") {
+                                                    echo "active";
+                                                } ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -49,7 +51,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.php" class="nav-link active">
+                            <a href="./index.php" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dashboard v1</p>
                             </a>
@@ -185,7 +187,9 @@
                 </li>
                 <!-- MÓN ĂN -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link <?php if (isset($pape) == "monan") {
+                                                    echo "active";
+                                                } ?>">
                         <i class="nav-icon fas fa-hamburger"></i>
                         <p>
                             Món ăn

@@ -13,7 +13,10 @@
         <section class="section">
             <div class="row p-3">
                 <?php
-                $key = $_POST['key'];
+                $key = "";
+                if (isset($_POST['key'])) {
+                    $key = $_POST['key'];
+                }
 
                 include("./class/monan.php");
                 $dish = new Monan();

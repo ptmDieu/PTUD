@@ -1,0 +1,11 @@
+.form-group.invalid .form-control {
+    border-color: #f33a58;
+}
+
+.form-group.invalid .form-text {
+    color: #f33a58;
+}
+
+.form-control:hover {
+    border-color: #1dbfaf;
+}

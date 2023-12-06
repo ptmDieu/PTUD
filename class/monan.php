@@ -78,7 +78,7 @@ class Monan
 
     public function searchDish($key)
     {
-        $sql = "SELECT * FROM `monan` WHERE TenMonAN LIKE '%$key%'";
+        $sql = "SELECT * FROM `monan` WHERE TenMonAN LIKE '%$key%' AND TrangThai = 1";
         $result = $this->db->select($sql);
 
         if ($result && $result->num_rows > 0) {

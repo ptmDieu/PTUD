@@ -38,6 +38,7 @@ if (isset($_GET['action']) == 'logout') {
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="dist/css//validate.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -68,12 +69,78 @@ if (isset($_GET['action']) == 'logout') {
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Dashboard</h1>
+
+              <?php
+              $page = isset($_GET['page']) ? $_GET['page'] : "dashboard";
+              switch ($page) {
+                case "monan":
+                  echo ('<h1>Quản lý món ăn</h1>');
+                  break;
+                case "themmon":
+                  echo ('<h1>Thêm món ăn</h1>');
+                  break;
+                case "ctmonan":
+                  echo ('<h1>Chi tiết món ăn</h1>');
+                  break;
+                case "update":
+                  echo ('<h1>Cập nhật món ăn</h1>');
+                  break;
+                case "status":
+                  echo ('<h1>Đổi trạng thái</h1>');
+                  break;
+                case "dexuat":
+                  echo ('<h1>Xem đề xuất món </h1>');
+                  break;
+                case "danhgia":
+                  echo ('<h1>Xem đánh giá </h1>');
+                  break;
+                case "pdm":
+                  echo ('<h1>Xem phiếu đặt món </h1>');
+                  break;
+                default:
+                  echo ('<h1>Dashbroad </h1>');
+              }
+
+
+
+              ?>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
+                <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                <li class="breadcrumb-item active">
+                  <?php
+                  $page = isset($_GET['page']) ? $_GET['page'] : "dashboard";
+                  switch ($page) {
+                    case "monan":
+                      echo ('Quản lý món ăn');
+                      break;
+                    case "themmon":
+                      echo ('Thêm món ăn');
+                      break;
+                    case "ctmonan":
+                      echo ('Chi Tiết món Ăn');
+                      break;
+                    case "update":
+                      echo ('Cập nhật món ăn');
+                      break;
+                    case "status":
+                      echo ('Đổi trạng thái');
+                      break;
+                    case "dexuat":
+                      echo ('Xem đề xuất món ');
+                      break;
+                    case "danhgia":
+                      echo ('Xem đánh giá ');
+                      break;
+                    case "pdm":
+                      echo ('Xem phiếu đặt món ');
+                      break;
+                    default:
+                      echo ('Dashbroad ');
+                  }
+                  ?>
+                </li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -81,7 +148,6 @@ if (isset($_GET['action']) == 'logout') {
       </div>
       <!-- /.content-header -->
       <?php
-      $page = isset($_GET['page']) ? $_GET['page'] : "dashboard";
 
       switch ($page) {
         case "monan":

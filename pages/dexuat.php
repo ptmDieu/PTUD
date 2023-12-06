@@ -66,7 +66,7 @@
           success: function(response) {
             Swal.fire("Đã gửi đề xuất!");
             setTimeout(function() {
-              location.reload();
+              window.location.href = "index.php?page=dxcuaban";;
             }, 2000)
           },
         });

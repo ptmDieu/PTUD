@@ -29,30 +29,34 @@
 
         echo (" <h4 class='text-center' >Vui lòng đăng nhập để sử dụng chức năng này!</h4> ");
       } else {
+
         $stt = 0;
 
-        $pdm = $p->getOrderByNV($_SESSION['MaNV']);
-        while ($row = mysqli_fetch_array($pdm)) {
-          $sl = $p->get_Qty($row['MaPhieuDatMon']);
-          $result = mysqli_fetch_array($sl);
-          $qty = $result['SoMon'];
-          echo ('
-            <tr>
-                <td class="text-center" >' . ++$stt . '</td>
-                <td class="text-center">' . $row['MaPhieuDatMon'] . '</td>
-                <td class="text-center">' . $row['NgayDat'] . '</td>
-                <td class="text-center" >' . $qty . '</td>
-                <td class="text-center">' . number_format($row['TongTien']) . '</td>
-                <td class="text-center">' . $row['TenTrangThai'] . '</td>
-                <td class="text-center">' . $row['GhiChu'] . '</td>
-                <td>
-                  <a href="?page=ct-pdm&id=' . $row['MaPhieuDatMon'] . '"><button class="btn-primary btn">
-                      <span>Xem chi tiết</span>
-                    </button></a>
-                </td>
-            </tr>
-            
-            ');
+        if ($pdm = $p->getOrderByNV($_SESSION['MaNV'])) {
+          while ($row = mysqli_fetch_array($pdm)) {
+            $sl = $p->get_Qty($row['MaPhieuDatMon']);
+            $result = mysqli_fetch_array($sl);
+            $qty = $result['SoMon'];
+            echo ('
+              <tr>
+                  <td class="text-center" >' . ++$stt . '</td>
+                  <td class="text-center">' . $row['MaPhieuDatMon'] . '</td>
+                  <td class="text-center">' . $row['NgayDat'] . '</td>
+                  <td class="text-center" >' . $qty . '</td>
+                  <td class="text-center">' . number_format($row['TongTien']) . '</td>
+                  <td class="text-center">' . $row['TenTrangThai'] . '</td>
+                  <td class="text-center">' . $row['GhiChu'] . '</td>
+                  <td>
+                    <a href="?page=ct-pdm&id=' . $row['MaPhieuDatMon'] . '"><button class="btn-primary btn">
+                        <span>Xem chi tiết</span>
+                      </button></a>
+                  </td>
+              </tr>
+              
+              ');
+          }
+        } else {
+          echo (" <h4 class='text-center text-danger' >Bạn chưa có phiếu đặt món nào!</h4> <br>");
         }
       }
 

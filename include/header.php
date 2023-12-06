@@ -5,10 +5,10 @@ if (!isset($_COOKIE['idCart'])) {
 
 if (isset($_GET['action']) == 'logout') {
     session_destroy();
-    setcookie('maNV', $user['MaNV'], time() - 60 * 60 * 24 * 30, "/");
+    setcookie('maNV', $user['MaNV'], time() - 60 * 60 * 12, "/");
     header('location:index.php');
 }
-// echo $_SESSION['MaKhachHang'];
+
 
 
 
@@ -57,17 +57,26 @@ if (isset($_GET['action']) == 'logout') {
                                 }
                                 ?></a>
                             <ul class="dropdown-menu">
+                                <?php
+                                if (isset($_SESSION['MaNV']) && isset($_SESSION['ChucVu']) == 1) {
+
+                                    echo ('<li><a class="dropdown-item" href="Admin_QuanLyBepAn/">Trang quản lý</a></li>');
+                                }
+
+                                ?>
                                 <li>
                                     <a class="dropdown-item" href="?page=xempdm">Xem Phiếu đặt món</a>
                                 </li>
                                 <li><a class="dropdown-item" href="?page=congno">Xem công nợ</a></li>
                                 <li><a class="dropdown-item" href="?page=dexuat">Đề xuất món</a></li>
                                 <li><a class="dropdown-item" href="?page=dxcuaban">Đề xuất của bạn</a></li>
+
                                 <?php
                                 if (isset($_SESSION['MaNV'])) {
                                     echo ('<li><a class="dropdown-item" href="index.php?action=logout">Đăng xuất</a></li>');
                                 }
                                 ?>
+
                             </ul>
                         </li>
                     </ul>

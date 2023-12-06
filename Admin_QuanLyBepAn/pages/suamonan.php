@@ -1,7 +1,7 @@
 <?php
 require_once('./classes/food.php');
 $food = new Food();
-if (isset($_POST['update'])) {
+if (!empty($_POST)) {
     if ($food->updateFood($_POST, $_FILES['file'])) {
         echo '
             <div class="alert">
@@ -41,40 +41,40 @@ if (isset($_GET['id'])) {
         <li class="active"> /Thêm món ăn</li>
     </ol> -->
 </section>
-<form action="" method="post" class="" style=" padding:50px" enctype="multipart/form-data">
+<form action="" method="post" class="" id="formSuaMon" style=" padding:50px" enctype="multipart/form-data">
     <div class="form-group">
         <label class="sr-only" for="inputName">Hidden input label</label>
         <input type="text" class="form-control sr-only" name="id" value="<?php echo $_GET['id']; ?>" id="inputName">
     </div>
     <div class="form-group">
         <label for="">Tên món ăn:</label>
-        <input type="text" class="form-control" name="tenmon" id="" aria-describedby="helpId" value="<?php echo $dish['TenMonAn']; ?>" placeholder="Nhập tên món ăn" required>
-        <small id="helpId" class="form-text text-muted">Help text</small>
+        <input type="text" class="form-control" name="tenmon" id="tenMon" aria-describedby="helpId" value="<?php echo $dish['TenMonAn']; ?>" placeholder="Nhập tên món ăn" required>
+        <small id="erTen" class="form-text "></small>
     </div>
     <div class="form-group">
         <label for="">Thành phần</label>
-        <input type="text" class="form-control" name="thanhphan" id="" aria-describedby="helpId" placeholder="Thành phần của món ăn" value="<?php echo $dish['ThanhPhan']; ?>" required>
-        <small id="helpId" class="form-text text-muted">Help text</small>
+        <input type="text" class="form-control" name="thanhphan" id="thanhPhan" aria-describedby="helpId" placeholder="Thành phần của món ăn" value="<?php echo $dish['ThanhPhan']; ?>" required>
+        <small id="erThanhPhan" class="form-text "></small>
     </div>
     <div class="form-group">
         <label for="">Mô tả</label>
-        <input type="text" class="form-control" name="mota" id="" aria-describedby="helpId" placeholder="Mô tả món ăn" value="<?php echo $dish['MoTa']; ?>" required>
-        <small id="helpId" class="form-text text-muted">Help text</small>
+        <input type="text" class="form-control" name="mota" id="moTa" aria-describedby="helpId" placeholder="Mô tả món ăn" value="<?php echo $dish['MoTa']; ?>" required>
+        <small id="erMoTa" class="form-text "></small>
     </div>
     <div class="form-group">
         <label for="">Giá bán</label>
-        <input type="text" class="form-control" name="gia" id="" aria-describedby="helpId" placeholder="Giá muốn bán" value="<?php echo number_format($dish['GiaTien']); ?>" required>
-        <small id="helpId" class="form-text text-muted">Help text</small>
+        <input type="text" class="form-control" name="gia" id="Gia" aria-describedby="helpId" placeholder="Giá muốn bán" value="<?php echo ($dish['GiaTien']); ?>" required>
+        <small id="erGia" class="form-text "></small>
     </div>
     <div class="form-group">
         <label for="">Chi phí</label>
-        <input type="text" class="form-control" name="chiphi" id="" aria-describedby="helpId" placeholder="" value="<?php echo number_format($dish['ChiPhi']); ?>">
-        <small id="helpId" class="form-text text-muted">Help text</small>
+        <input type="text" class="form-control" name="chiphi" id="chiPhi" aria-describedby="helpId" placeholder="" value="<?php echo ($dish['ChiPhi']); ?>">
+        <small id="erChiPhi" class="form-text "></small>
     </div>
     <div class="form-group">
         <label for="">Hình ảnh</label>
-        <input type="file" class="form-control-file" name="file" id="" placeholder="" aria-describedby="fileHelpId">
-        <small id="fileHelpId" class="form-text text-muted">Help text</small>
+        <input type="file" class="form-control-file" name="file" id="img" placeholder="" aria-describedby="fileHelpId">
+        <small id="fileHelpId" class="form-text "></small>
     </div>
 
     <div class="form-group">
@@ -101,3 +101,21 @@ if (isset($_GET['id'])) {
     <button type="submit" name="update" class="btn btn-primary">Lưu</button>
 
 </form>
+<script src="dist/js/validate.js"></script>
+<script>
+    Validator({
+        form: '#formSuaMon',
+        errorSelector: '.form-text',
+        rules: [
+            Validator.isRequired('#tenMon'),
+            Validator.isRequired('#thanhPhan'),
+            Validator.isRequired('#moTa'),
+            Validator.isRequired('#Gia'),
+            Validator.isNumber('#Gia'),
+            Validator.checkCost('#chiPhi', function() {
+                return document.querySelector('#formSuaMon #Gia').value;
+            })
+
+        ]
+    });
+</script>

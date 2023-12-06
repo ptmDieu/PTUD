@@ -23,6 +23,9 @@
                     Số lượng món
                 </th>
                 <th class="text-center">
+                    Trạng thái phiếu
+                </th>
+                <th class="text-center">
                     Tổng tiền
                 </th>
                 <th class="text-center">
@@ -66,6 +69,9 @@
                                     <td class="text-center">
                                         ' . $result['SoMon'] . '
                                     </td>
+                                    <td class="text-center">
+                                    ' . $row['TenTrangThai'] . '
+                                </td>
                                     <td class="text-center">
                                         ' . number_format($row['TongTien'])  . '
                                     </td>

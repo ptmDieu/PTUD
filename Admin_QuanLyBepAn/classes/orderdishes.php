@@ -14,8 +14,8 @@ class OrderDishes
 
     public function getAllOrderDishes()
     {
-        $sql = "SELECT * FROM phieudatmon, ctphieudatmon, nhanvien 
-            where ctphieudatmon.MaPhieuDatMon = phieudatmon.MaPhieuDatMon AND phieudatmon.MaNV = nhanvien.MaNV";
+        $sql = "SELECT * FROM phieudatmon, ctphieudatmon, nhanvien, trangthaiphieu
+            where ctphieudatmon.MaPhieuDatMon = phieudatmon.MaPhieuDatMon AND phieudatmon.MaNV = nhanvien.MaNV AND phieudatmon.MaTrangThai = trangthaiphieu.MaTrangThai ORDER BY NgayDat DESC";
 
         $result = $this->db->select($sql);
         if ($result->num_rows > 0) {

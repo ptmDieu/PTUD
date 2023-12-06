@@ -22,38 +22,38 @@
             <?php
             include('class/dishorder.php');
             $p = new OrderDishes();
-
+            $stt = 0;
+            $congno = 0;
             if (!isset($_SESSION['MaNV'])) {
 
                 echo (" <h4 class='text-center' >Vui lòng đăng nhập để sử dụng chức năng này!</h4> ");
             } else {
-                $stt = 0;
-                $congno = 0;
 
-
-
-                $pdm = $p->getOrderSucces($_SESSION['MaNV']);
-                while ($row = mysqli_fetch_array($pdm)) {
-                    $congno += $row['TongTien'];
-                    $sl = $p->get_Qty($row['MaPhieuDatMon']);
-                    $result = mysqli_fetch_array($sl);
-                    $qty = $result['SoMon'];
-                    echo ('
-            <tr>
-                <td class="text-center" >' . ++$stt . '</td>
-                <td class="text-center">' . $row['MaPhieuDatMon'] . '</td>
-                <td class="text-center">' . $row['NgayDat'] . '</td>
-           <td class="text-center">' . $row['TenTrangThai'] . '</td>
-                <td class="text-center">' . number_format($row['TongTien']) . '</td>
-                    
-           <td>
-                  <a href="?page=ct-pdm&id=' . $row['MaPhieuDatMon'] . '"><button class="btn-primary btn">
-                      <span>Xem phiếu</span>
-                    </button></a>
-                </td>
-            </tr>
-            
-            ');
+                if ($pdm = $p->getOrderSucces($_SESSION['MaNV'])) {
+                    while ($row = mysqli_fetch_array($pdm)) {
+                        $congno += $row['TongTien'];
+                        $sl = $p->get_Qty($row['MaPhieuDatMon']);
+                        $result = mysqli_fetch_array($sl);
+                        $qty = $result['SoMon'];
+                        echo ('
+                <tr>
+                    <td class="text-center" >' . ++$stt . '</td>
+                    <td class="text-center">' . $row['MaPhieuDatMon'] . '</td>
+                    <td class="text-center">' . $row['NgayDat'] . '</td>
+               <td class="text-center">' . $row['TenTrangThai'] . '</td>
+                    <td class="text-center">' . number_format($row['TongTien']) . '</td>
+                        
+               <td>
+                      <a href="?page=ct-pdm&id=' . $row['MaPhieuDatMon'] . '"><button class="btn-primary btn">
+                          <span>Xem phiếu</span>
+                        </button></a>
+                    </td>
+                </tr>
+                
+                ');
+                    }
+                } else {
+                    echo (" <h4 class='text-center text-danger'>Hiện tại bạn chưa có công nợ!</h4> <br>");
                 }
             }
 

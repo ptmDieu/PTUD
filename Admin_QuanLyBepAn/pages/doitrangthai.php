@@ -28,7 +28,7 @@ $result = mysqli_fetch_array($result);
                 <div class="col-12 col-sm-6">
                     <h3 class="d-inline-block d-sm-none"><?php echo $result['TenMonAn'] ?></h3>
                     <div class="col-12">
-                        <img src="../uploads/<?php echo $result['HinhAnh'] ?>" class="product-image" alt="<?php echo $result['TenMonAn'] ?>">
+                        <img src="./uploads/<?php echo $result['HinhAnh'] ?>" class="product-image" alt="<?php echo $result['TenMonAn'] ?>">
                     </div>
                 </div>
                 <div class="col-12 col-sm-6">

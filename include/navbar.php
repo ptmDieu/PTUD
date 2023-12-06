@@ -7,7 +7,13 @@ $giohang->checkCart();
 
 
 ?>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark header {
+  position: fixed;
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 10px 0;
+  z-index: 1000;
+}">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>

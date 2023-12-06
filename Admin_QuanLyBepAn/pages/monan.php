@@ -84,7 +84,7 @@ $foods = $f->getAll();
                                 <td>
                                     <img src="uploads/' . $row['HinhAnh'] . '" width="80px"/>
                                 </td>
-                                <td>' . $row['GiaTien'] . '</td>
+                                <td>' . number_format($row['GiaTien'])  . '</td>
                                 
                                 <td>' . $row['TenLoai'] . '</td>
                                 <td>' .  $trangthai . '</td>
